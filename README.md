@@ -1,12 +1,12 @@
 # Suggest-A-Dram
 
-This is a group project for CodeClan, it will utilize Python, JavaScript and Java to build a web scraper and Web App that will allow a user to answer some quick questions about their tastes and then reccomend a whiskey based on their response.
+This is a group project for CodeClan, it will utilize Python, JavaScript and Java to build a web scraper and Web App that will allow a user to answer some quick questions about their tastes and then recommend a whiskey based on their response.
 
-The app will be geared towards beginers in whisky to help them find good products to try. 
+The app will be geared towards beginners in whisky to help them find good products to try. 
 
 ## Frameworks
 
-The project will use the following frameworks for the respective languages
+The project will use the following frameworks for the respective languages.
 
 Python:
 - BeautifulSoup - [more info](https://www.crummy.com/software/BeautifulSoup/ "BeautifulSoup")
@@ -28,9 +28,9 @@ Java:
 
 3. Design a ranking/sorting system to sort, rank and format the noSQL data into standard format. (Use SQL to store formatted and sorted data)
 
-4. Build a maching system to compair user input with sorted whisky to provide most accurate results. (User input will come from front end, possibly save input to db?)
+4. Build a machine system to compare user input with sorted whisky to provide most accurate results. (User input will come from front end, possibly save input to db?)
 
-5. Build Spring Back end api to retrieve and save data to/from the SQL db
+5. Build Spring Back end API to retrieve and save data to/from the SQL db
 
 6. Build React front end to allow for user input and displaying of suggested whisky
 
