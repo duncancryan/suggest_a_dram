@@ -28,7 +28,7 @@ Java:
 
 3. Design a ranking/sorting system to sort, rank and format the noSQL data into standard format. (Use SQL to store formatted and sorted data)
 
-4. Build a machine system to compare user input with sorted whisky to provide most accurate results. (User input will come from front end, possibly save input to db?)
+4. Build a matching system to compare user input with sorted whisky to provide most accurate results. (User input will come from front end, possibly save input to db?)
 
 5. Build Spring Back end API to retrieve and save data to/from the SQL db
 
