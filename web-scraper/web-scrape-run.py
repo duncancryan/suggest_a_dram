@@ -122,6 +122,8 @@ if (root_result.status_code == 200):
                 if "Year Old" in fact.text:
                     return fact.text[0:2]
 
+        # Attribute functions
+        # Gets the number rating for each whisky style
         def setattrBody():
             guage = whisky_soup.find_all("div", class_="flavour-profile__gauge")
             labels = whisky_soup.find_all("span", class_="flavour-profile__label")
@@ -157,7 +159,8 @@ if (root_result.status_code == 200):
                 if "Sweetness" in label.text:
                     index = labels.index(label) 
                     return guage[index].attrs['data-text']
-            
+        
+        # Captures each descriptive tag for the whisky
         def setAttrCharacter():
             character = []
             tags = whisky_soup.find_all("img", class_="flavour-profile__image")
@@ -185,14 +188,15 @@ if (root_result.status_code == 200):
         #             return fact.text
 
         whisky_count = 0
-
         # changed to just first one for speed - remember to adjust
 
         if whisky_count < 1:
             print("Building whisky...")
+            # Checks for the flavour profile in each whisky
             if whisky_soup.find("div", class_="flavour-profile"):
-                
+                # Checks that they have both the style and character sections to describe the taste
                 if whisky_soup.find('div', class_="flavour-profile__group--style") and whisky_soup.find('div', class_="flavour-profile__group--character"):
+                    # Sets the data for the whisky
                     whisky['meta-data']['name'] = setmdName()
                     whisky['meta-data']['age'] = setmdAge()
                     whisky['meta-data']['price'] = setmdPrice()
