@@ -4,14 +4,14 @@
 # Imports
 import requests
 from bs4 import BeautifulSoup
-# from pymongo import MongoClient
-# import pprint
-# client = MongoClient('localhost', 27017)
-# db = client['whisky-db]
+from pymongo import MongoClient
+import pprint
+client = MongoClient('localhost', 27017)
+db = client.whisky_database
+whiskies = db.whisky_collection
 
 # Set count & other requirements
 
-count_less_than = True
 prepend_url = "https://www.thewhiskyexchange.com"
 
 
@@ -81,7 +81,7 @@ if (root_result.status_code == 200):
 
         # Grab the first whisky from each brand
         for link in individual_product_links:
-            if count < 1:
+            if count < 6:
                 product_links.append(link.attrs["href"])
                 print("getting data....")
                 count += 1
@@ -170,56 +170,53 @@ if (root_result.status_code == 200):
 
             return character
 
-        # def getRegion():
-        #     facts = whisky_soup.findAll("p", class_="product-facts__data")
 
-        #     for fact in facts:
-        #         if "Highland" in fact.text:
-        #             return fact.text
-        #         if "Campbeltown" in fact.text:
-        #             return fact.text
-        #         if "Speyside" in fact.text:
-        #             return fact.text
-        #         if "Island" in fact.text:
-        #             return fact.text
-        #         if "Islay" in fact.text:
-        #             return fact.text
-        #         if "Lowland" in fact.text:
-        #             return fact.text
-
-        whisky_count = 0
+        # whisky_count = 0
         # changed to just first one for speed - remember to adjust
 
-        if whisky_count < 1:
-            print("Building whisky...")
+        # if whisky_count < 500:
+        print("Building whisky...")
             # Checks for the flavour profile in each whisky
-            if whisky_soup.find("div", class_="flavour-profile"):
+        if whisky_soup.find("div", class_="flavour-profile"):
                 # Checks that they have both the style and character sections to describe the taste
-                if whisky_soup.find('div', class_="flavour-profile__group--style") and whisky_soup.find('div', class_="flavour-profile__group--character"):
+            if whisky_soup.find('div', class_="flavour-profile__group--style") and whisky_soup.find('div', class_="flavour-profile__group--character"):
+                    # Checks that there is a price
+                    if whisky_soup.find('p', class_="product-action__price"):
                     # Sets the data for the whisky
-                    whisky['meta-data']['name'] = setmdName()
-                    whisky['meta-data']['age'] = setmdAge()
-                    whisky['meta-data']['price'] = setmdPrice()
-                    whisky['attributes']['body'] = setattrBody()
-                    whisky['attributes']['richness'] = setattrRichness()
-                    whisky['attributes']['smoke'] = setattrSmoke()
-                    whisky['attributes']['sweetness'] = setattrSweetness()
-                    whisky['attributes']['character'] = setAttrCharacter()
+                        whisky['meta-data']['name'] = setmdName()
+                        whisky['meta-data']['age'] = setmdAge()
+                        whisky['meta-data']['price'] = setmdPrice()
+                        whisky['attributes']['body'] = setattrBody()
+                        whisky['attributes']['richness'] = setattrRichness()
+                        whisky['attributes']['smoke'] = setattrSmoke()
+                        whisky['attributes']['sweetness'] = setattrSweetness()
+                        whisky['attributes']['character'] = setAttrCharacter()
 
-                    whisky_count += 1
+                        # Save whisky to database
+                        test_whiskies.insert_one(whisky)
+                        # reset whiskey dictionary 
 
-                else:
-                    print("Missing a set of attributes, skipping...")
-                    pass
+                        whisky = {
+                        'meta-data': {},
+                        'attributes': {}
+                        }
+
+                            # whisky_count += 1
+                    
+                    else:
+                        print("No price, skipping...")
 
             else:
-                print("Missing all attributes, skipping...")
+                print("Missing a set of attributes, skipping...")
                 pass
 
+        else:
+            print("Missing all attributes, skipping...")
+            pass
 
-        if whisky_count > 1:
-            break
+
+        # if whisky_count > 1:
+        #     break
 
 
     print("Done...")
-    print(whisky)
