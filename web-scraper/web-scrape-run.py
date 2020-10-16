@@ -193,7 +193,7 @@ if (root_result.status_code == 200):
                         whisky['attributes']['character'] = setAttrCharacter()
 
                         # Save whisky to database
-                        test_whiskies.insert_one(whisky)
+                        whiskies.insert_one(whisky)
                         # reset whiskey dictionary 
 
                         whisky = {
