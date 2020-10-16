@@ -9,6 +9,8 @@ import pprint
 client = MongoClient("localhost", 27017)
 db = client.whisky_database
 whiskies = db.whisky_collection
+client.drop_database('whisky_database')
+
 
 # Set count & other requirements
 
