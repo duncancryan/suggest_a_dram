@@ -4,6 +4,10 @@
 # Imports
 import requests
 from bs4 import BeautifulSoup
+# from pymongo import MongoClient
+# import pprint
+# client = MongoClient('localhost', 27017)
+# db = client['whisky-db]
 
 # Set count & other requirements
 
@@ -26,7 +30,7 @@ if (root_result.status_code == 200):
     soup = BeautifulSoup(root_content, "html.parser")
 
     # Grab A-to-Z URLS
-    atz_links = soup.findAll("a", class_="producers-link")
+    atz_links = soup.find_all("a", class_="producers-link")
 
     # Get the four links to the whisky pages
     whisky_type_links = []
@@ -48,7 +52,7 @@ if (root_result.status_code == 200):
         type_soup = BeautifulSoup(type_content, 'html.parser')
         
         # Grab each distillery/brand URLs
-        individual_brand_links = type_soup.findAll("a", class_="az-item-link")
+        individual_brand_links = type_soup.find_all("a", class_="az-item-link")
         for link in individual_brand_links:
             brand_links.append(link.attrs['href'])
     
@@ -56,6 +60,8 @@ if (root_result.status_code == 200):
 
     # Grab product URLS 
     product_links = []
+
+    print("===========(URL retrieval phase)============")
 
     for brand_link in brand_links:
 
@@ -71,8 +77,111 @@ if (root_result.status_code == 200):
         # Grab each individual whisky URLs
         individual_product_links = brand_soup.findAll("a", class_="product")
 
+        # Grab the first whisky from each brand
         for link in individual_product_links:
-            if count < 2:
+            if count < 1:
                 product_links.append(link.attrs["href"])
-                print(f"count: {count}")
+                print("getting data....")
                 count += 1
+
+        print(f"{brand_link} complete!")
+
+        print("=======================")
+
+    print("Retrieval complete!")
+
+
+    # Start data grab
+    whisky = {
+        'meta-data': {},
+        'attributes': {}
+    }
+
+    print("===========(Build phase)============")
+
+    # Request page for each whisky
+    for link in product_links:
+
+        whisky_result = requests.get(f"{prepend_url}{link}", {'User-Agent': 'Mozilla/5.0'})
+        whisky_content = whisky_result.content
+        whisky_soup = BeautifulSoup(whisky_content, 'html.parser')
+
+        # Data functions
+        def setmdName():
+            return whisky_soup.find("h1", class_="product-main__name").text.strip()
+
+        def setmdPrice():
+            return  whisky_soup.find("p", class_="product-action__price").text.strip()
+
+        def setmdAge():
+            facts = whisky_soup.find_all("p", class_="product-facts__data")
+
+            for fact in facts:
+                if "Year Old" in fact.text:
+                    return fact.text[0:2]
+
+
+        def setattrBody():
+            attr = whisky_soup.find_all("div", class_="flavour-profile__gauge")
+            return attr[0].attrs['data-text']
+
+        def setattrRichness():
+            attr = whisky_soup.find_all("div", class_="flavour-profile__gauge")
+            return attr[1].attrs['data-text']
+            
+        def setattrSmoke():
+            attr = whisky_soup.find_all("div", class_="flavour-profile__gauge")
+            return attr[2].attrs['data-text']
+
+        def setattrSweetness():
+            attr = whisky_soup.find_all("div", class_="flavour-profile__gauge")
+            return attr[3].attrs['data-text']
+
+        def setAttrCharacter():
+            character = []
+            tags = whisky_soup.find_all("span", class_="flavour-profile__label")
+
+            for tag in tags:
+                character.append(tag.text)
+            
+            return character
+        
+        # def getRegion():
+        #     facts = whisky_soup.findAll("p", class_="product-facts__data")
+
+        #     for fact in facts:
+        #         if "Highland" in fact.text:
+        #             return fact.text
+        #         if "Campbeltown" in fact.text:
+        #             return fact.text 
+        #         if "Speyside" in fact.text:
+        #             return fact.text 
+        #         if "Island" in fact.text:
+        #             return fact.text 
+        #         if "Islay" in fact.text:
+        #             return fact.text
+        #         if "Lowland" in fact.text:
+        #             return fact.text
+
+        whisky_count = 0
+
+        # changed to just first one for speed - remember to adjust
+
+        if whisky_count < 1:
+            print("Building whisky...")
+            whisky['meta-data']['name'] = setmdName()
+            whisky['meta-data']['age'] = setmdAge()
+            whisky['meta-data']['price'] = setmdPrice()
+            # whisky['attributes']['body'] = setattrBody()
+            # whisky['attributes']['richness'] = setattrRichness()
+            # whisky['attributes']['smoke'] = setattrSmoke()
+            # whisky['attributes']['sweetness'] = setattrSweetness()
+            whisky['attributes']['character'] = setAttrCharacter()
+            whisky_count += 1
+
+        if whisky_count > 1:
+            print("Done...")
+            break
+            
+
+    print(whisky)
