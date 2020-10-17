@@ -140,7 +140,8 @@ if (root_result.status_code == 200):
                 "title": 'N/A',
                 "description": 'N/A',
                 "charset": 'N/A',
-                "social_image": 'N/A'
+                "social_image": 'N/A',
+                "url": "N/A"
             }
 
             # Metadata title
@@ -166,6 +167,10 @@ if (root_result.status_code == 200):
                 pagemd["social_image"] = whisky_soup.find("meta", property="og:image").get("content")
             elif whisky_soup.find("meta", property="twitter:image:src"):
                 pagemd["social_image"] = whisky_soup.find("meta", property="twitter:image:src").get("content")
+
+            # Whisky URL
+            if whisky_soup.find("meta", property="og:url"):
+                pagemd["url"] = whisky_soup.find("meta", property="og:url").get("content")
 
             return pagemd
 
