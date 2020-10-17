@@ -171,6 +171,12 @@ if (root_result.status_code == 200):
 
         # Attribute functions
         # Gets the number rating for each whisky style
+
+        def setattrRating():
+            rating = whisky_soup.find("span", class_="review-overview__rating") 
+            return rating.text.strip()
+
+
         def setattrBody():
             guage = whisky_soup.find_all("div", class_="flavour-profile__gauge")
             labels = whisky_soup.find_all("span", class_="flavour-profile__label")
@@ -229,30 +235,37 @@ if (root_result.status_code == 200):
 
                     # Checks that there is a price
                     if whisky_soup.find("p", class_="product-action__price"):
+                        
+                        # Checks to see if rating exists
+                        if whisky_soup.find("span", class_="review-overview__rating"):
 
                         # Sets the data for the whisky
-                        whisky["meta-data"]["pagemd"] = setmdPageMeta()
-                        whisky["meta-data"]["name"] = setmdName()
-                        whisky["meta-data"]["age"] = setmdAge()
-                        whisky["meta-data"]["price"] = setmdPrice()
-                        whisky["attributes"]["body"] = setattrBody()
-                        whisky["attributes"]["richness"] = setattrRichness()
-                        whisky["attributes"]["smoke"] = setattrSmoke()
-                        whisky["attributes"]["sweetness"] = setattrSweetness()
-                        whisky["attributes"]["character"] = setAttrCharacter()
+                            whisky["meta-data"]["pagemd"] = setmdPageMeta()
+                            whisky["meta-data"]["name"] = setmdName()
+                            whisky["meta-data"]["age"] = setmdAge()
+                            whisky["meta-data"]["price"] = setmdPrice()
+                            whisky["attributes"]["rating"] = setattrRating()
+                            whisky["attributes"]["body"] = setattrBody()
+                            whisky["attributes"]["richness"] = setattrRichness()
+                            whisky["attributes"]["smoke"] = setattrSmoke()
+                            whisky["attributes"]["sweetness"] = setattrSweetness()
+                            whisky["attributes"]["character"] = setAttrCharacter()
 
-                        # Save whisky to database
-                        whiskies.insert_one(whisky)
+                            # Save whisky to database
+                            whiskies.insert_one(whisky)
 
-                        print(f"indexed...")
+                            print(f"indexed...")
 
-                        # Reset whiskey dictionary 
-                        whisky = {
-                        "meta-data": {},
-                        "attributes": {}
-                        }
+                            # Reset whiskey dictionary 
+                            whisky = {
+                            "meta-data": {},
+                            "attributes": {}
+                            }
 
-                        saved_whisky_count += 1
+                            saved_whisky_count += 1
+
+                        else:
+                            print("no rating, skipping...")
                     
                     else:
                         print("No price, skipping...")
