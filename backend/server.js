@@ -27,5 +27,5 @@ MongoClient.connect("mongodb://localhost:27017")
 // Run express server on port 3001
 app.listen(3001, () => {
     console.log("Express server running: ", true);
-    console.log("Port:", 3000)
+    console.log("Port:", 3001)
 });
