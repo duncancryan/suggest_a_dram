@@ -52,3 +52,19 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# dependencies
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+
+.env.development.local
+.env.test.local
+.env.production.local
