@@ -20,14 +20,6 @@ export default class QuizContainer extends Component{
 
     // Methods
 
-    onSliderChange(){
-        
-    }
-
-    onCharacterChange(){
-
-    }
-
     onProgressChange(){
 
     }
