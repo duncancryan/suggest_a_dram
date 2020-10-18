@@ -1,19 +1,26 @@
 import React from 'react';
 import NavBar from './NavBar';
 import ResultWrapper from './containers/ResultWrapper'
-import { createMuiTheme, Divider, Grid, ThemeProvider, Typography } from '@material-ui/core';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import { deepPurple, grey } from '@material-ui/core/colors';
 
 const theme = createMuiTheme({
-  spacing: 8,
   palette: {
     primary: {
-      main: grey[900]
+      light: grey[50],
+      main: grey[800],
+      dark: grey[900]
     },
     secondary: {
       main: deepPurple[500]
+    },
+    background: {
+      paper: grey[700]
+    },
+    text: {
+      primary: '#fafafa'
     }
-  },
+  }
 });
 
 function App() {
@@ -23,15 +30,7 @@ function App() {
 
       <NavBar />
 
-      <main>
-
-        <Typography variant="h1">
-          All Whiskies
-        </Typography>
-
-        <ResultWrapper />
-
-      </main>
+      <ResultWrapper />
 
     </ThemeProvider>
 

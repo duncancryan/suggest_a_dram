@@ -4,4 +4,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #424242;
+  color: #fafafa;
+}
+
+.result-wrapper{
+  margin: 20px auto;
+  width: 80vw;
+  text-align: center;
+}
+.result-content{
+  padding: 10px;
+}
+.results-search-area, .results-whisky-wrapper{
+  padding: 10px;
+  margin: 0 auto;
+  width: 90%;
 }

@@ -1,5 +1,8 @@
 // Imports
+import { Typography, Paper } from '@material-ui/core';
 import React, {Component} from 'react';
+import SearchBar from '../components/SearchBar';
+import WhiskyItem from '../components/WhiskyItem';
 
 export default class ResultWrapper extends Component {
 
@@ -20,7 +23,10 @@ export default class ResultWrapper extends Component {
                         "product-image":"https://img.thewhiskyexchange.com/540/abfob.12yov1.jpg",
                         "product-url":"https://www.thewhiskyexchange.com/p/5850/aberfeldy-12-year-old"
                     },
-                    "name":"Aberfeldy 12 Year Old","age":"12","price":"£37.95"},
+                    "name":"Aberfeldy 12 Year Old",
+                    "age":"12",
+                    "price":"£37.95"
+                },
                     "attributes":{
                         "rating":"4.5",
                         "body":"3",
@@ -39,8 +45,37 @@ export default class ResultWrapper extends Component {
 
     // Render
     render() {
+
+        const whiskies = this.state.whiskies.map(whisky => {
+            return <WhiskyItem whisky={whisky} />
+        })
+
         return(
-            <p>Result Wrapper</p>
+            <div className="result-wrapper">
+                
+                <Paper>
+
+                    <div className="result-content">
+
+                        <Typography variant="h2">All Whiskies</Typography>
+
+                        <div className="results-search-area">
+
+                            <SearchBar />
+
+                        </div>
+
+                        <div className="results-whisky-wrapper">
+                        
+                            {whiskies}
+
+                        </div>
+
+                    </div>
+
+                </Paper>
+
+            </div>
         );
     }
 

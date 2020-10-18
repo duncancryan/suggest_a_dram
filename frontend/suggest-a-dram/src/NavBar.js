@@ -1,6 +1,6 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
-import { Toolbar, Typography, Button, Grid, makeStyles, ButtonGroup} from '@material-ui/core';
+import { Toolbar, Typography, Button, Grid, ButtonGroup} from '@material-ui/core';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import LocalBarRoundedIcon from '@material-ui/icons/LocalBarRounded';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
@@ -9,7 +9,7 @@ import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 export default function NavBar() {
 
     return (
-        <AppBar>
+        <AppBar position="sticky">
 
             <Toolbar>
 
