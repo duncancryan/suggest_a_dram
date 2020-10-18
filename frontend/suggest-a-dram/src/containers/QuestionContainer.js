@@ -11,7 +11,7 @@ export default class QuestionContainer extends Component {
                 sweetness: 0,
             },
             whiskiesFromSliders: [],
-            notesChosen: {
+            characters: {
                 elements: 0,
                 fruit: 0,
                 spice: 0,
@@ -21,6 +21,18 @@ export default class QuestionContainer extends Component {
             },
             progressStateOfQuestions: 0
         }
+    }
+
+    onSliderChange(){
+
+    }
+
+    onCharacterSelect(){
+
+    }
+
+    onProgressChange(){
+        
     }
 
     render(){
