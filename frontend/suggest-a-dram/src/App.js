@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from './NavBar';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+import ResultWrapper from './containers/ResultWrapper'
+import { createMuiTheme, Divider, Grid, ThemeProvider, Typography } from '@material-ui/core';
 import { deepPurple, grey } from '@material-ui/core/colors';
 
 const theme = createMuiTheme({
@@ -17,15 +18,23 @@ const theme = createMuiTheme({
 
 function App() {
   return (
-    <main className="main-container">
 
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
 
-        <NavBar />
+      <NavBar />
 
-      </ThemeProvider>
+      <main>
 
-    </main>
+        <Typography variant="h1">
+          All Whiskies
+        </Typography>
+
+        <ResultWrapper />
+
+      </main>
+
+    </ThemeProvider>
+
   );
 }
 

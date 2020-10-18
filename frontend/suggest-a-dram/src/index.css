@@ -5,7 +5,3 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #424242;
 }
-
-.rhs{
-  flex-direction: row-reverse;
-}
