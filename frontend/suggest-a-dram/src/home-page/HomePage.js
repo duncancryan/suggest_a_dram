@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBar from '../NavBar';
 import './HomePage.css'
 import {Button, Typography} from '@material-ui/core';
 
