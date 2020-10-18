@@ -14,7 +14,7 @@ export default function HomePage() {
                 <h2>Find the perfect Whisky</h2>
                 <h3>Discover the most accurate flavour profiles of Scottish Whiskies</h3>
                 <h4>Simply select your flavour preferences and let us suggest a dram for you</h4>
-                <Button variant="contained" color="secondary">Start</Button>
+                <Button href="/start" variant="contained" color="secondary">Start</Button>
             </main>
         </div>
 
