@@ -1,34 +1,38 @@
 import React from 'react';
 import HomePage from './home-page/HomePage';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core';
-import { teal, grey } from '@material-ui/core/colors';
 import NavBar from './NavBar';
+import ResultWrapper from './containers/ResultWrapper'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+import { deepOrange, grey } from '@material-ui/core/colors';
 
 const theme = createMuiTheme({
-  spacing: 8,
   palette: {
     primary: {
       main: grey[900]
     },
     secondary: {
-      main: teal[700]
+      main: deepOrange[800]
+    },
+    background: {
+      paper: grey[700]
+    },
+    text: {
+      primary: '#fafafa'
     }
-  },
+  }
 });
 
 function App() {
   return (
-    <main className="main-container">
 
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
 
-        <NavBar />
+      <NavBar />
 
-        <HomePage />
+      <HomePage />
 
-      </ThemeProvider>
+    </ThemeProvider>
 
-    </main>
   );
 }
 
