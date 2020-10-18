@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from './NavBar';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
-import { teal, grey } from '@material-ui/core/colors';
+import { deepPurple, grey } from '@material-ui/core/colors';
 
 const theme = createMuiTheme({
   spacing: 8,
@@ -10,7 +10,7 @@ const theme = createMuiTheme({
       main: grey[900]
     },
     secondary: {
-      main: teal[700]
+      main: deepPurple[500]
     }
   },
 });
