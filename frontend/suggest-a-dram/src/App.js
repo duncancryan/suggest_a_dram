@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from './NavBar';
+import HomePage from './home-page/HomePage';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import { teal, grey } from '@material-ui/core/colors';
 
@@ -21,7 +21,7 @@ function App() {
 
       <ThemeProvider theme={theme}>
 
-        <NavBar />
+        <HomePage />
 
       </ThemeProvider>
 
