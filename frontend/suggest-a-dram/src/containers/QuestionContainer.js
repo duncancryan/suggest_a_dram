@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import SliderSection from '../components/SliderSection';
 
 export default class QuestionContainer extends Component {
     constructor(props){
@@ -32,13 +33,13 @@ export default class QuestionContainer extends Component {
     }
 
     onProgressChange(){
-        
+
     }
 
     render(){
         return(
             <div>
-                {/* slidercontainer this.state.style*/}
+                <SliderSection onSliderChange={this.onSliderChange} style={this.state.style} />
                 {/* characterContainer this.state.notes */}
                 <p>Question Container</p>
             </div>
