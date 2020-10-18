@@ -92,8 +92,8 @@ def setattrBody(page):
         if "Body" in label.text:
             index = labels.index(label)
             return guage[index].attrs["data-text"]
-        else:
-            return 0
+
+    return 0
 
 #==========#
 
@@ -107,8 +107,8 @@ def setattrRichness(page):
         if "Richness" in label.text:
             index = labels.index(label)
             return guage[index].attrs["data-text"]
-        else:
-            return 0
+
+    return 0
 
 #==========#
 
@@ -122,8 +122,8 @@ def setattrSmoke(page):
         if "Smoke" in label.text:
             index = labels.index(label)
             return guage[index].attrs["data-text"]
-        else:
-            return 0
+
+    return 0
 
 #==========#
 
@@ -137,8 +137,8 @@ def setattrSweetness(page):
         if "Sweetness" in label.text:
             index = labels.index(label) 
             return guage[index].attrs["data-text"]
-        else:
-            return 0
+
+    return 0
 
 #==========#
 

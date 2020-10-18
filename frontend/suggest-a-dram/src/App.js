@@ -2,17 +2,15 @@ import React from 'react';
 import NavBar from './NavBar';
 import ResultWrapper from './containers/ResultWrapper'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
-import { deepPurple, grey } from '@material-ui/core/colors';
+import { deepOrange, grey } from '@material-ui/core/colors';
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: grey[50],
-      main: grey[800],
-      dark: grey[900]
+      main: grey[900]
     },
     secondary: {
-      main: deepPurple[500]
+      main: deepOrange[800]
     },
     background: {
       paper: grey[700]

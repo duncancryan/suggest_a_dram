@@ -45,26 +45,26 @@ export default function WhiskyItem(props) {
                 <Grid container spacing={1} className={classes.chips}>
 
                     <Grid item>
-                        <Chip label={"Body: " + props.whisky.attributes.body} color="secondary" />
+                        <Chip label={"Body: " + props.whisky.attributes.body} />
                     </Grid>
 
                     <Grid item>
-                        <Chip label={"Smoke: " + props.whisky.attributes.smoke} color="secondary" />
+                        <Chip label={"Smoke: " + props.whisky.attributes.smoke} />
                     </Grid>
 
                     <Grid item>
-                        <Chip label={"Richness: " + props.whisky.attributes.richness} color="secondary" />
+                        <Chip label={"Richness: " + props.whisky.attributes.richness} />
                     </Grid>
 
                     <Grid item>
-                        <Chip label={"Sweetness: " + props.whisky.attributes.sweetness} color="secondary" />
+                        <Chip label={"Sweetness: " + props.whisky.attributes.sweetness} />
                     </Grid>
 
                 </Grid>
 
                 <Typography variant="body2">{props.whisky['meta-data'].pagemd['page-description']}</Typography>
 
-                <Button variant="contained" color="secondary" className={classes.link} href={props.whisky['meta-data'].pagemd['product-url']}>Learn More</Button>
+                <Button variant="contained" color="secondary" className={classes.link} href={props.whisky['meta-data'].pagemd['product-url']} target="_blank">Learn More</Button>
 
             </CardContent>
 
