@@ -9,12 +9,7 @@ export default class QuizContainer extends Component{
 
         // State
         this.state = {
-            body: 0,
-            richness: 0,
-            smoke: 0,
-            sweetness: 0,
-            bottle_image_url: '',
-            character: []
+            bottle_image_urls: [],
         }
     }
 
