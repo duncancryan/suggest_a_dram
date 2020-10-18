@@ -3,6 +3,8 @@ import HomePage from './home-page/HomePage';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import { teal, grey } from '@material-ui/core/colors';
 import NavBar from './NavBar';
+import QuizContainer from './containers/QuizContainer';
+import QuestionContainer from './containers/QuestionContainer';
 
 const theme = createMuiTheme({
   spacing: 8,
@@ -25,6 +27,8 @@ function App() {
         <NavBar />
 
         <HomePage />
+
+        <QuestionContainer/>
 
       </ThemeProvider>
 

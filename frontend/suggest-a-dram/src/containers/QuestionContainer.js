@@ -1,5 +1,6 @@
+import { style } from '@material-ui/system';
 import React, {Component} from 'react';
-import SliderSection from '../components/SliderSection';
+import SliderSection from './SliderSection';
 
 export default class QuestionContainer extends Component {
     constructor(props){
@@ -22,10 +23,12 @@ export default class QuestionContainer extends Component {
             },
             progressStateOfQuestions: 0
         }
+        // Binds
+        this.onSubmitStyle = this.onSubmitStyle.bind(this);
     }
 
-    onSliderChange(){
-
+    onSubmitStyle(){
+        this.setState({style: style})
     }
 
     onCharacterSelect(){
@@ -39,7 +42,7 @@ export default class QuestionContainer extends Component {
     render(){
         return(
             <div>
-                <SliderSection onSliderChange={this.onSliderChange} style={this.state.style} />
+                <SliderSection onSliderChange={this.onSubmitStyle} style={this.state.style} />
                 {/* characterContainer this.state.notes */}
                 <p>Question Container</p>
             </div>
