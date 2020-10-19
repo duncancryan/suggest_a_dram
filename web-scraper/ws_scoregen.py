@@ -2,21 +2,7 @@
 # This file holds the calculation for the whisky score
 # which is used to help with matching
 
-# Arrays of tags
-
-
-
-
-
-
-
-# Set all base variables
-fruit_score = 0
-spice_score = 0
-confectionery_score = 0
-floral_score = 0
-fatty_score = 0
-
+# ================== #
 
 def element_generator(attributes):
     print("Creating element score")
@@ -33,6 +19,7 @@ def element_generator(attributes):
     
     return element_score
 
+# ================== #
 
 def fruit_generator(attributes):
     print("Creating fruit score")
@@ -53,6 +40,7 @@ def fruit_generator(attributes):
     
     return fruit_score
 
+# ================== #
 
 def spice_generator(attributes):
     print("Creating spice score")
@@ -72,6 +60,7 @@ def spice_generator(attributes):
     
     return spice_score
 
+# ================== #
 
 def confectionery_generator(attributes):
     print("Creating confectioneryscore")
@@ -91,6 +80,7 @@ def confectionery_generator(attributes):
     
     return confectionery_score
 
+# ================== #
 
 def floral_generator(attributes):
     print("Creating floral score")
@@ -110,6 +100,7 @@ def floral_generator(attributes):
     
     return floral_score
 
+# ================== #
 
 def fatty_generator(attributes):
     print("Creating fatty score")
@@ -129,80 +120,4 @@ def fatty_generator(attributes):
     
     return fatty_score
 
-
-
-
-
-
-
-
-
-
-
-    # Set categories & their tags
-
-
-    # Begin score functions
-
-    # def body_score():
-    #     body_tag_count = 0
-
-    #     for fatty_tag in fatty:
-    #         for whisky_tag in characters:
-    #             if fatty_tag.lower() in whisky_tag.lower():
-    #                 body_tag_count += 1
-
-    #     return (body_tag_count + int(body_base))
-
-    # # ================== #
-
-    # def smoke_score():
-    #     smoke_tag_count = 0
-
-    #     for elements_tag in elements:
-    #         for whisky_tag in characters:
-    #             if elements_tag.lower() in whisky_tag.lower():
-    #                 smoke_tag_count += 1
-
-    #     return (smoke_tag_count + int(smoke_base))
-
-    # # ================== #
-
-    # def richness_score():
-    #     richness_tag_count = 0
-
-    #     for spice_tag in spice:
-    #         for whisky_tag in characters:
-    #             if spice_tag == whisky_tag:
-    #                 richness_tag_count += 1
-
-    #     for floral_tag in floral:
-    #         for whisky_tag in characters:
-    #             if floral_tag.lower() in whisky_tag.lower():
-    #                 richness_tag_count += 1
-
-    #     return (richness_tag_count + int(richness_base))
-
-    # # ================== #
-
-    # def sweetness_score():
-    #     sweetness_tag_count = 0
-
-    #     for whisky_tag in characters:
-    #         for fruit_tag in fruit:
-    #             if fruit_tag.lower() in whisky_tag.lower():
-    #                 sweetness_tag_count += 1
-
-    #     for whisky_tag in characters:
-    #         for confection_tag in confectionery:
-    #             if confection_tag.lower() in whisky_tag.lower():
-    #                 sweetness_tag_count += 1
-
-    #     return (sweetness_tag_count + int(sweetness_base))
-
-    # # ================== #
-
-    # score = (body_score() + smoke_score() + richness_score() + sweetness_score())
-    # print("Score done!")
-
-    # return score
+# ================== #
