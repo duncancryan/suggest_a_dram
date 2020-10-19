@@ -1,5 +1,7 @@
 import React, {Component, Fragment} from 'react';
+import {BrowserRouter as Route, Router, Switch } from 'react-router-dom';
 import CharacterWrapper from './CharacterWrapper';
+import ResultWrapper from './ResultWrapper';
 import StyleWrapper from './StyleWrapper';
 
 export default class QuestionWrapper extends Component {
@@ -34,7 +36,9 @@ export default class QuestionWrapper extends Component {
 
         if (this.props.questionSet === 0){
             return <StyleWrapper onProgressChange={this.onSubmitStyle} />
-        } else {
+        } 
+
+        if (this.props.questionSet > 0){
             return (
             <CharacterWrapper stage={this.props.questionSet} 
                 onProgressChange={this.onCharacterSelect} 
@@ -42,7 +46,12 @@ export default class QuestionWrapper extends Component {
                 currentWhiskies={this.state.styleWhiskies}
              />
              )
-        }
+        } 
+
+        // if (this.state.styleWhiskies.length > 0){  
+        // } else {
+        //     return <Typography variant="body1">Sorry couldn't find any whiskies matching your request. Please try again</Typography>
+        // }
 
     }
 
@@ -51,6 +60,19 @@ export default class QuestionWrapper extends Component {
         return(
             <Fragment>
                 {this.questionSet()}
+
+                <Router>
+                    <Fragment>
+
+                        <Switch>
+                        <Route exact path="/result" render={() => {
+                            return <ResultWrapper whiskies={this.state.characterWhiskies} />
+                        }} />
+                        </Switch>
+
+                    </Fragment>
+                </Router>
+
             </Fragment>
         )
     }

@@ -9,11 +9,10 @@ export default class StyleWrapper extends Component {
 
         // State
         this.state = {
-            body: 0,
-            richness: 0,
-            smoke: 0,
-            sweetness: 0,
-            test: []
+            body: 3,
+            richness: 3,
+            smoke: 3,
+            sweetness: 3,
         }
         // Binds
         this.onBodyChange = this.onBodyChange.bind(this)
@@ -32,8 +31,10 @@ export default class StyleWrapper extends Component {
         return whiskies;
     }
 
-    handleSubmit(){
-        this.props.onProgressChange(this.matchOnStyle());
+    async handleSubmit(){
+        const data = this.matchOnStyle();
+        await
+        this.props.onProgressChange(data);
     }
 
     onBodyChange(body){
@@ -54,15 +55,24 @@ export default class StyleWrapper extends Component {
 
     render() {
         return (
-            // does this need to be inside a form?
-            <div>
-
-                <SliderComponent onChange={this.onBodyChange} />
-                <SliderComponent onChange={this.onRichnessChange} />
-                <SliderComponent onChange={this.onSmokeChange} />
-                <SliderComponent onChange={this.onSweetnessChange} />
-                <Button variant="contained" color="primary" onClick={this.handleSubmit}>Next</Button>
-            </div>
-        )
+          // does this need to be inside a form?
+          <div>
+            <h3>Body</h3>
+            <SliderComponent onChange={this.onBodyChange} />
+            <h3>Richness</h3>
+            <SliderComponent onChange={this.onRichnessChange} />
+            <h3>Smoke</h3>
+            <SliderComponent onChange={this.onSmokeChange} />
+            <h3>Sweetness</h3>
+            <SliderComponent onChange={this.onSweetnessChange} />
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.handleSubmit}
+            >
+              Next
+            </Button>
+          </div>
+        );
     }
 }

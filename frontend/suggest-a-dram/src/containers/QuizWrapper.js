@@ -20,7 +20,8 @@ export default class QuizContainer extends Component{
     // Methods
 
     onProgressChange(){
-        this.setState({progress: this.progress + 1});
+        const progress_state = this.state.progress + 1
+        this.setState({progress: progress_state});
     }
 
     // Render

@@ -19,15 +19,14 @@ export default class CharacterItem extends Component {
     }
 
     // Functions
-    onChoose(type){
-        this.props.onSelected(type)
-        this.setState({selected: true})
+    onChoose(){
+        this.props.onSelected(this.props.type)
     }
 
     // Render
     render() {
         return (
-            <Chip label={this.props.text} color="secondary" onClick={this.onChoose(this.props.type)} disabled={this.state.selected} />
+            <Chip label={this.props.text} color="secondary" onClick={this.onChoose} />
         );
     }
 
