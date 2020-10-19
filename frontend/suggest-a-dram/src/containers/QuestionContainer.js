@@ -1,6 +1,6 @@
 import { style } from '@material-ui/system';
 import React, {Component} from 'react';
-import SliderSection from './SliderSection';
+import SliderSection from './StyleContainer';
 
 export default class QuestionContainer extends Component {
     constructor(props){
