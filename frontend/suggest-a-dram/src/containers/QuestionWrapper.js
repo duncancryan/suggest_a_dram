@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 import CharacterWrapper from './CharacterWrapper';
 import StyleWrapper from './StyleWrapper';
 
-export default class QuestionContainer extends Component {
+export default class QuestionWrapper extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -13,7 +13,7 @@ export default class QuestionContainer extends Component {
         // Binds
         this.onSubmitStyle = this.onSubmitStyle.bind(this);
         this.onCharacterSelect = this.onCharacterSelect.bind(this);
-        this.characterSubmit = this.characterSubmit.bind(this);
+        this.onCharacterSubmit = this.onCharacterSubmit.bind(this);
     }
 
     onSubmitStyle(data){
