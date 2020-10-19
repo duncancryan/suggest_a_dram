@@ -2,7 +2,7 @@
 import React, { Fragment } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import HomePage from '../components/HomePage';
-import QuizContainer from '../containers/QuizContainer';
+import QuizWrapper from '../containers/QuizWrapper';
 import SearchWrapper from '../containers/SearchWrapper';
 import NavBar from '../NavBar';
 
@@ -22,7 +22,7 @@ export default function MainRouter() {
                 </Switch>
 
                 <Switch>
-                    <Route exact path="/start" component={QuizContainer} />
+                    <Route exact path="/start" component={QuizWrapper} />
                 </Switch>
 
                 <Switch>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SliderComponent from '../components/SliderComponent';
 import Button from '@material-ui/core/Button';
 
-export default class SliderSection extends Component {
+export default class StyleContainer extends Component {
     constructor(props) {
         super(props);
 
@@ -44,15 +44,13 @@ export default class SliderSection extends Component {
     }
 
 
-
-
-
     // Render
 
     render() {
         return (
             // does this need to be inside a form?
             <div>
+
                 <SliderComponent onChange={this.onBodyChange} />
                 <SliderComponent onChange={this.onRichnessChange} />
                 <SliderComponent onChange={this.onSmokeChange} />

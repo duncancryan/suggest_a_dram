@@ -8,6 +8,6 @@ export default function SliderComponent(props){
     }
 
     return(
-        <Slider min={0} max={5} defaultValue={3} onChange={handleSliderChange}/>
+        <Slider min={0} max={5} defaultValue={3} onChange={handleSliderChange} valueLabelDisplay="auto"/>
     )
 }
