@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import HomePage from '../components/HomePage';
 import QuizWrapper from '../containers/QuizWrapper';
 import SearchWrapper from '../containers/SearchWrapper';
-import NavBar from '../NavBar';
+import NavBar from '../components/NavBar';
 
 // Build Router
 export default function MainRouter() {
