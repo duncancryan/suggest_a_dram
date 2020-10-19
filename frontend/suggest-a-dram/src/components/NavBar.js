@@ -1,12 +1,21 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
-import { Toolbar, Typography, Button, Grid, ButtonGroup} from '@material-ui/core';
+import { Toolbar, Button, Grid, ButtonGroup, makeStyles} from '@material-ui/core';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import LocalBarRoundedIcon from '@material-ui/icons/LocalBarRounded';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
+import Logo from './logo.png';
+
+const useStyles = makeStyles((theme) => ({
+    logo: {
+        width: "35px"
+    }
+}));
 
 export default function NavBar() {
+
+    const classes = useStyles();
 
     return (
         <AppBar position="sticky">
@@ -15,11 +24,7 @@ export default function NavBar() {
 
                 <Grid justify="space-between" container>
 
-                    <Grid item>
-
-                        <Typography variant="h4" >Suggest A Dram</Typography>
-
-                    </Grid>
+                    <img src={Logo} alt="" className={classes.logo} />
 
                     <Grid item>
 
