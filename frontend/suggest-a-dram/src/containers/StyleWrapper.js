@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import SliderComponent from '../components/SliderComponent';
 import Button from '@material-ui/core/Button';
+import Request from '../helpers/request';
 
-export default class StyleContainer extends Component {
+export default class StyleWrapper extends Component {
     constructor(props) {
         super(props);
 
@@ -11,22 +12,28 @@ export default class StyleContainer extends Component {
             body: 0,
             richness: 0,
             smoke: 0,
-            sweetness: 0
+            sweetness: 0,
+            test: []
         }
         // Binds
         this.onBodyChange = this.onBodyChange.bind(this)
         this.onRichnessChange = this.onRichnessChange.bind(this)
         this.onSmokeChange = this.onSmokeChange.bind(this)
         this.onSweetnessChange = this.onSweetnessChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
 
     }
     // Methods
     matchOnStyle(){
-        // This method will match whiskies based on style scores and be called in the handle submit
+        const whiskies = [];
+        const request = new Request();
+        request.get(`/api/whiskies/${this.state.body}/${this.state.richness}/${this.state.smoke}/${this.state.sweetness}`)
+        .then(data => data.map(item => whiskies.push(item)));
+        return whiskies;
     }
 
     handleSubmit(){
-        // This method will use the submit even to shuttle the result of matching up and set it as the styleWhiskies array
+        this.props.onProgressChange(this.matchOnStyle());
     }
 
     onBodyChange(body){

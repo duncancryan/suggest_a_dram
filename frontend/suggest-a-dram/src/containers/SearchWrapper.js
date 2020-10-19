@@ -31,8 +31,8 @@ export default class ResultWrapper extends Component {
     // Render
     render() {
 
-        const whiskies = this.state.whiskies.map(whisky => {
-            return <WhiskyItem whisky={whisky} />
+        const whiskies = this.state.whiskies.map((whisky, index) => {
+            return <WhiskyItem whisky={whisky} key={index} />
         })
 
         return(

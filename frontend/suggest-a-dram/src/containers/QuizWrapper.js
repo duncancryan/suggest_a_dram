@@ -12,6 +12,9 @@ export default class QuizContainer extends Component{
             bottle_image_urls: [],
             progress: 0
         }
+
+        // Binds
+        this.onProgressChange = this.onProgressChange.bind(this);
     }
 
     // Methods

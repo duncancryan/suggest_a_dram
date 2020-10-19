@@ -25,6 +25,27 @@ const createRouter = function (collection){
             });
     });
 
+    router.get('/:body/:richness/:smoke/:sweetness', (req, res) => {
+        // Params
+        const b = req.params.body;
+        const r = req.params.richness;
+        const s = req.params.smoke;
+        const e = req.params.sweetness;
+
+        collection.find({
+            'attributes.body': b,
+            'attributes.richness': r,
+            'attributes.smoke': s,
+            'attributes.sweetness': e
+            }).toArray()
+        .then((doc) => res.json(doc))
+        .catch((err) => {
+            console.error(err);
+            res.status(500);
+            res.json({status: 500, error: err});
+        })
+    });
+
     return router
 };
 

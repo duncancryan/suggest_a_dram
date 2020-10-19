@@ -83,7 +83,7 @@ if (root_result.status_code == 200):
 
         # Grab the first whisky from each brand
         for link in individual_product_links:
-            if count < 6:
+            if count < 30:
                 product_links.append(link.attrs["href"])
                 print("getting data....")
                 count += 1

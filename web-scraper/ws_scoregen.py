@@ -26,8 +26,8 @@ def fruit_generator(attributes):
 
     characters = attributes['character']
 
-    fruit = ['Apple', 'Apricot','Dates','Pear','Prunes','Lemon','Raisins','Orange','Strawberry','Dried Fruit','Plums','Lime','Pineapple','Peach','Stewed Fruit',
-    'Blackcurrant','Marmalade','Mango','Blackberry','Cherry','Raspberry','Sherry','Wine','Sultana', 'Melon']
+    fruit = ['Apple', 'Apricot','Dates','Pear','Prunes','Lemon','Raisins ','Orange ','Strawberry','Dried Fruit','Plums','Lime','Pineapple','Peach','Stewed Fruit',
+    'Blackcurrant','Marmalade','Mango','Blackberry','Cherry','Raspberry','Sherry','Wine','Sultana', 'Melon', 'Figs']
     fruit_lower = []
     for tag in fruit:
         fruit_lower.append(tag.lower())
@@ -47,7 +47,7 @@ def spice_generator(attributes):
 
     characters = attributes['character']
 
-    spice = ['Cinnamon','White Pepper','Aniseed','Nutmeg','Clove','Ginger','Mint','Mixed Herb','Liquorice root','Sage','Black Pepper','Rosemary']
+    spice = ['Cinnamon','White Pepper','Aniseed','Nutmeg','Clove','Ginger','Mint','Mixed Herb','Liquorice root','Sage','Black Pepper','Rosemary', 'Anise (star)']
     spice_lower = []
     for tag in spice:
         spice_lower.append(tag.lower())
@@ -67,7 +67,7 @@ def confectionery_generator(attributes):
 
     characters = attributes['character']
 
-    confectionery = ['Toffee','Honey','Milk Chocolate','Praline','Dark Chocolate','Vanilla','Peardrops','Caramel','Custard','Fruit Cake','Butterscotch','Biscuits', 'Malt','Toast','Brioche']
+    confectionery = ['Toffee','Honey ','Milk Chocolate','Praline','Dark Chocolate','Vanilla ','Peardrops','Caramel','Custard','Fruit Cake','Butterscotch','Biscuits', 'Malt','Toast','Brioche']
     confectionery_lower = []
     for tag in confectionery:
         confectionery_lower.append(tag.lower())
