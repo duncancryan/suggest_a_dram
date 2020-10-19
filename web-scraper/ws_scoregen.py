@@ -2,21 +2,6 @@
 # This file holds the calculation for the whisky score
 # which is used to help with matching
 
-# Arrays of tags
-
-
-
-
-
-
-
-# Set all base variables
-fruit_score = 0
-spice_score = 0
-confectionery_score = 0
-floral_score = 0
-fatty_score = 0
-
 
 def element_generator(attributes):
     print("Creating element score")

@@ -13,7 +13,6 @@ export default class StyleContainer extends Component {
             smoke: 0,
             sweetness: 0
         }
-
         // Binds
         this.onBodyChange = this.onBodyChange.bind(this)
         this.onRichnessChange = this.onRichnessChange.bind(this)
