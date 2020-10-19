@@ -28,8 +28,6 @@ function App() {
 
         <HomePage />
 
-        <QuestionContainer/>
-
       </ThemeProvider>
 
     </main>

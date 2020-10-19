@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SliderComponent from '../components/SliderComponent';
+import Button from '@material-ui/core/Button';
 
 export default class SliderSection extends Component {
     constructor(props) {
@@ -21,8 +22,12 @@ export default class SliderSection extends Component {
 
     }
     // Methods
-    handleSubmit(){
+    matchOnStyle(){
+        // This method will match whiskies based on style scores and be called in the handle submit
+    }
 
+    handleSubmit(){
+        // This method will use the submit even to shuttle the result of matching up and set it as the styleWhiskies array
     }
 
     onBodyChange(body){
@@ -46,12 +51,13 @@ export default class SliderSection extends Component {
 
     render() {
         return (
+            // does this need to be inside a form?
             <div>
                 <SliderComponent onChange={this.onBodyChange} />
                 <SliderComponent onChange={this.onRichnessChange} />
                 <SliderComponent onChange={this.onSmokeChange} />
                 <SliderComponent onChange={this.onSweetnessChange} />
-                {/* button will be here which calls handleSubmit */}
+                <Button variant="contained" color="primary" onClick={this.handleSubmit}>Next</Button>
             </div>
         )
     }
