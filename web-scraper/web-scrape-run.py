@@ -153,7 +153,12 @@ if (root_result.status_code == 200):
 
                             # Run score calc and add to whisky
 
-                            whisky['attributes']['score'] = scoregen.generator(whisky['attributes'])
+                            whisky['attributes']['element_score'] = scoregen.element_generator(whisky['attributes'])
+                            whisky['attributes']['fruit_score'] = scoregen.fruit_generator(whisky['attributes'])
+                            whisky['attributes']['spice_score'] = scoregen.spice_generator(whisky['attributes'])
+                            whisky['attributes']['confectionery_score'] = scoregen.confectionery_generator(whisky['attributes'])
+                            whisky['attributes']['floral_score'] = scoregen.floral_generator(whisky['attributes'])
+                            whisky['attributes']['fatty_score'] = scoregen.fatty_generator(whisky['attributes'])
 
                             # Save whisky to database
                             whiskies.insert_one(whisky)
