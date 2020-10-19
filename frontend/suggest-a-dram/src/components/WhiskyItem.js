@@ -55,7 +55,7 @@ export default function WhiskyItem(props) {
 
     const description = function() {
 
-        if (props.size != "small") {
+        if (props.size !== "small") {
             return (
                 <Fragment>
                 <Typography variant="body2">{props.whisky['meta-data'].pagemd['page-description']}</Typography>
@@ -67,7 +67,7 @@ export default function WhiskyItem(props) {
 
     const product_image = function() {
 
-        if (props.size != "small") {
+        if (props.size !== "small") {
             return (
                 <div className={classes.mediaContainer}>
                     <CardMedia image={props.whisky['meta-data'].pagemd['product-image']} className={classes.media} />
