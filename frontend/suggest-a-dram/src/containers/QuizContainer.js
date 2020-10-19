@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
-import NavBar from '../NavBar';
-
 
 export default class QuizContainer extends Component{
 
     // Constructor
-    constructor(){
-
+    constructor(props){
+        super(props)
         // State
         this.state = {
             bottle_image_urls: [],
@@ -19,13 +17,11 @@ export default class QuizContainer extends Component{
 
     }
 
-
     // Render
 
     render(){
         return(
             <main>
-                <NavBar/>
                 <div className="quiz-content">
                     <div className="questiuon-box">
                         I will be the Question Container

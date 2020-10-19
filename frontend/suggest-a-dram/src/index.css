@@ -3,8 +3,7 @@ body {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("./home-page/pouring-whisky.gif");
-  background-size: 100%;
+  background: #424242;
   color: #fafafa;
 }
 
