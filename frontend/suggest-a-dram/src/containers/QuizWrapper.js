@@ -1,12 +1,12 @@
 import { Grid, Typography, Paper } from '@material-ui/core';
 import React, { Component } from 'react';
 import QuestionWrapper from './QuestionWrapper';
-import EmptyGlass from '../images/empty.png';
-import FirstFill from '../images/first-fill.png'
-import SecondFill from '../images/second-fill.png'
-import ThirdFill from '../images/third-fill.png'
-import FourthFill from '../images/fourth-fill.png'
-import FullGlass from '../images/full-glass.png'
+import EmptyGlass from '../images/whisky-state-1.svg';
+import FirstFill from '../images/whisky-state-2.svg';
+import SecondFill from '../images/whisky-state-3.svg';
+import ThirdFill from '../images/whisky-state-4.svg';
+import FourthFill from '../images/whisky-state-5.svg';
+import FullGlass from '../images/whisky-state-6.svg';
 import '../images/image-css.css'
 import BottleImage from '../components/BottleImage';
 
