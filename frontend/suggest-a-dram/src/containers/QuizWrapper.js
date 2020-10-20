@@ -50,7 +50,7 @@ export default class QuizContainer extends Component{
 
                     <Grid item>
                         {/* <Typography variant="h1">This is the whisky image</Typography> */}
-                        <img src={EmptyGlass} />
+                        <img className="glass-image" src={EmptyGlass} />
                     </Grid>
 
                 </Grid>
