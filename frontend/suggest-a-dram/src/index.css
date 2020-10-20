@@ -3,8 +3,12 @@ body {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #424242;
   color: #fafafa;
+  background: url('https://www.trumpgolfscotland.com/images/dynamic/getImage.gif?ID=100000800') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .result-wrapper{
@@ -24,8 +28,9 @@ body {
 .slider-page {
   width: 70%;
   height: 100%;
-  margin: 50px auto;
+  margin: 20px auto;
   padding: 30px;
+  background: rgba(168, 164, 160, 0.8)
 }
 
 .slider-section{

@@ -41,7 +41,6 @@ export default class QuestionWrapper extends Component {
     if (this.props.questionSet === 0) {
       return <StyleWrapper onProgressChange={this.onSubmitStyle} />;
     }
-
     if (this.props.questionSet > 0) {
       return (
         <Fragment>
@@ -59,7 +58,6 @@ export default class QuestionWrapper extends Component {
   }
 
   displayState() {
-
     if (this.state.rankedWhiskies.length === 0) {
       return this.questionSet();
     } else {
