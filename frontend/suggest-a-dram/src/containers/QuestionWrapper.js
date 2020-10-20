@@ -56,7 +56,7 @@ export default class QuestionWrapper extends Component {
   displayState() {
 
     if (this.state.rankedWhiskies.length === 0) {
-      return this.questionSet()
+      return this.questionSet();
     } else {
       return <ResultWrapper whiskies={this.state.rankedWhiskies} />
     }
