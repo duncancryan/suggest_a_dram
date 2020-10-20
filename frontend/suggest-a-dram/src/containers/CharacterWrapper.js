@@ -48,32 +48,46 @@ export default class CharacterWrapper extends Component {
 
     // Initialise empty array
     const ranked = [];
+    let counter = 0;
     if (this.props.currentWhiskies.length > 0) {
+      console.log("Entered if currenWhisky > 0")
       // While loop will carry on populating until we reach ten whiskies, or, if less than ten were passed down it will rank these
-      while (ranked.length < this.props.currentWhiskies.length || ranked.length < 10) {
+      while (counter < this.props.currentWhiskies.length || counter < 10) {
+        console.log("Entered while ranked < whisky")
         for (let whisky of this.props.currentWhiskies) {
+          console.log("Entered for loop")
           // find exact and push
           if (whisky.attributes.element_score === this.state.element_score) {
+            // console.log("Entered element")
             if (whisky.attributes.fruit_score === this.state.fruit_score) {
+              // console.log("Entered fruit")
               if (whisky.attributes.confectionery_score === this.state.confectionery_score) {
+                // console.log("Entered sweets")
                 if (whisky.attributes.spice_score === this.state.spice_score) {
+                  // console.log("Entered spice")
                   if (whisky.attributes.floral_score === this.state.floral_score) {
+                    // console.log("Entered floral")
                     if (whisky.attributes.fatty_score === this.state.fatty_score) {
                       ranked.push(whisky);
+                      counter += 1
+                      console.log("added to ranked, length", ranked.length)
                     }
                   }
                 }
               }
             }
-          }
+          } 
           // findthose that have scores +- 1 and push
           if (this.state.element_score === whisky.attributes.element_score + 1 || this.state.element_score === whisky.attributes.element_score - 1) {
+            // console.log("entered +- 1")
             if (this.state.fruit_score === whisky.attributes.fruit_score + 1 || this.state.fruit_score === whisky.attributes.fruit_score - 1) {
               if (this.state.confectionery_score === whisky.attributes.confectionery_score + 1 || this.state.confectionery_score === whisky.attributes.confectionery_score - 1) {
                 if (this.state.spice_score === whisky.attributes.spice_score + 1 || this.state.spice_score === whisky.attributes.spice_score - 1) {
                   if (this.state.floral_score === whisky.attributes.floral_score + 1 || this.state.floral_score === whisky.attributes.floral_score - 1) {
                     if (this.state.fatty_score === whisky.attributes.fatty_score + 1 || this.state.fatty_score === whisky.attributes.fatty_score - 1) {
                       ranked.push(whisky);
+                      counter += 1
+                      console.log("added to ranked, length", ranked.length)
                     }
                   }
                 }
@@ -82,25 +96,32 @@ export default class CharacterWrapper extends Component {
           }
           // find those that have scores +- 2 and push
           if (this.state.element_score === whisky.attributes.element_score + 2 || this.state.element_score === whisky.attributes.element_score - 2) {
+            // console.log("Entered +- 2")
             if (this.state.fruit_score === whisky.attributes.fruit_score + 2 || this.state.fruit_score === whisky.attributes.fruit_score - 2) {
               if (this.state.confectionery_score === whisky.attributes.confectionery_score + 2 || this.state.confectionery_score === whisky.attributes.confectionery_score - 2) {
                 if (this.state.spice_score === whisky.attributes.spice_score + 2 || this.state.spice_score === whisky.attributes.spice_score - 2) {
                   if (this.state.floral_score === whisky.attributes.floral_score + 2 || this.state.floral_score === whisky.attributes.floral_score - 2) {
                     if (this.state.fatty_score === whisky.attributes.fatty_score + 2 || this.state.fatty_score === whisky.attributes.fatty_score - 2) {
                       ranked.push(whisky);
+                      counter += 1
+                      console.log("added to ranked, length", ranked.length)
                     }
                   }
                 }
               }
             }
           }
+
+          counter += 1
         }
       }
     }
+    // return ranked;
     if (ranked.length > 0) {
       return ranked;
-    } else {
-      return this.props.currentWhiskies.slice(0, 5);
+    } 
+    else {
+      return this.props.currentWhiskies.slice(0, 9);
     }
   }
 

@@ -32,7 +32,6 @@ export default class StyleWrapper extends Component {
     async handleSubmit(){
         this.matchOnStyle()
         .then(data => this.props.onProgressChange(data));
-        // this.dataCheck(data);
     }
 
     onBodyChange(body){
