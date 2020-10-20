@@ -16,7 +16,8 @@ export default class ResultWrapper extends Component {
         // State
         this.state = {
             whiskies: [],
-            filteredWhiskies: []
+            filteredWhiskies: [],
+            filtered: false
         }
 
         // Binds
@@ -36,37 +37,18 @@ export default class ResultWrapper extends Component {
     onSearchChange(value) {
         const filtered = [];
         for(const whisky of this.state.whiskies){
-            if (whisky['meta-data'].name.indexOf(value) > -1){
+            const lowerCased = whisky['meta-data'].name.toLowerCase();
+            if (lowerCased.indexOf(value.toLowerCase()) > -1){
                 filtered.push(whisky);
             }
         }
         this.setState({ filteredWhiskies: filtered })
+        this.setState({ filtered: true })
     }
 
-    // allWhiskies(){
-    //     this.state.whiskies.map((whisky, index) => {
-    //         return <WhiskyItem whisky={whisky} key={index} />
-    //     })
-    // }
-
-    // searchResults(){
-    //     this.state.filteredWhiskies.map((whisky, index) => {
-    //         return <WhiskyItem whisky={whisky} key={index} />
-    //     })
-    // }
-
-    // displayState(){
-    //     if (this.state.filteredWhiskies.length === 0){
-    //         return this.allWhiskies();
-    //     } else {
-    //         return this.searchResults();
-    //     }
-    // }
 
 
-
-    // Render
-    render() {
+    displayState(){
 
         const whiskies = this.state.whiskies.map((whisky, index) => {
             return <WhiskyItem whisky={whisky} key={index} />
@@ -75,6 +57,20 @@ export default class ResultWrapper extends Component {
         const searchResults = this.state.filteredWhiskies.map((whisky, index) => {
             return <WhiskyItem whisky={whisky} key={index} />
         })
+
+        if (!this.state.filtered){
+            return whiskies;
+        } else {
+            return searchResults;
+        }
+    }
+
+
+
+    // Render
+    render() {
+
+
 
         return (
             <div className="result-wrapper">
@@ -93,8 +89,8 @@ export default class ResultWrapper extends Component {
 
                         <div className="results-whisky-wrapper">
                             
-                            {/* {this.displayState()} */}
-                            {whiskies}
+                            {this.displayState()}
+                            {/* {whiskies} */}
 
                         </div>
 
