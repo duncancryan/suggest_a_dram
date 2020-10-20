@@ -16,7 +16,7 @@ export default class QuizContainer extends Component{
         super(props)
         // State
         this.state = {
-            bottle_image_urls: [],
+            bottle_image_urls: [EmptyGlass, FirstFill, SecondFill, ThirdFill, FourthFill, FullGlass],
             progress: 0
         }
 
@@ -41,10 +41,10 @@ export default class QuizContainer extends Component{
     render(){
 
         return(
-            <main>
+            <div className='background'>
+            <main className="slider-page">
                 <Grid container justify="space-evenly">
-
-                    <Grid item>
+                    <Grid item className="slider-section">
                         <QuestionWrapper onComplete={this.onProgressChange} questionSet={this.state.progress} />
                     </Grid>
 
@@ -52,9 +52,9 @@ export default class QuizContainer extends Component{
                         {/* <Typography variant="h1">This is the whisky image</Typography> */}
                         <img className="glass-image" src={EmptyGlass} />
                     </Grid>
-
                 </Grid>
             </main>
+            </div>
         )
     }
 }
