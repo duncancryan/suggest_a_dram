@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SliderComponent from '../components/SliderComponent';
-import {Button, Divider, Typography} from '@material-ui/core';
+import {Button, Typography} from '@material-ui/core';
 import Request from '../helpers/request';
 
 export default class StyleWrapper extends Component {

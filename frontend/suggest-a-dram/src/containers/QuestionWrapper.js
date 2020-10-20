@@ -1,8 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import CharacterWrapper from './CharacterWrapper';
-import ResultWrapper from './ResultWrapper';
 import StyleWrapper from './StyleWrapper';
-import BottleImage from '../components/BottleImage'
 import { Button, Typography } from '@material-ui/core';
 
 export default class QuestionWrapper extends Component {

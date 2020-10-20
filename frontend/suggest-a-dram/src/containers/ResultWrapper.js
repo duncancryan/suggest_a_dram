@@ -1,6 +1,6 @@
 // Imports
 import React, { Fragment } from 'react';
-import { Typography, Paper, Divider, Grid } from '@material-ui/core';
+import { Typography, Paper, Grid } from '@material-ui/core';
 import WhiskyItem from '../components/WhiskyItem';
 
 export default function ResultWrapper(props) {
