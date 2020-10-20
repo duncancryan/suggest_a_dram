@@ -41,14 +41,12 @@ export default class QuizContainer extends Component {
     // Render
 
     render() {
-
         return (
-            <div className='background'>
                 <main className="slider-page">
                     <Grid container justify="space-evenly">
                         <Paper className="slider-section">
                             <Grid item>
-                                <QuestionWrapper onComplete={this.onProgressChange} questionSet={this.state.progress} images={this.state.bottle_image_urls} />
+                                <QuestionWrapper onComplete={this.onProgressChange} questionSet={this.state.progress} />
                             </Grid>
                         </Paper>
 
@@ -57,7 +55,6 @@ export default class QuizContainer extends Component {
                         </Grid>
                     </Grid>
                 </main>
-            </div>
         )
     }
 }

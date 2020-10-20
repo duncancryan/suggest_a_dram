@@ -45,12 +45,11 @@ export default class QuestionWrapper extends Component {
     if (this.props.questionSet > 0) {
       return (
         <Fragment>
-          <CharacterWrapper
+          <CharacterWrapper 
             stage={this.props.questionSet}
             onProgressChange={this.onCharacterSelect}
             characterSubmit={this.onCharacterSubmit}
             currentWhiskies={this.state.styleWhiskies}
-            images={this.props.images}
           />
         </Fragment>
       );

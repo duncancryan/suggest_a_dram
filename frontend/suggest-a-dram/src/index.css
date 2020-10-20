@@ -20,3 +20,15 @@ body {
   margin: 0 auto;
   width: 90%;
 }
+
+.slider-page {
+  width: 70%;
+  height: 100%;
+  margin: 50px auto;
+  padding: 30px;
+}
+
+.slider-section{
+  padding: 10px 30px 20px;
+  text-align: center;
+}
