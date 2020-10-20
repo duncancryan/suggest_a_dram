@@ -24,7 +24,6 @@ export default class QuestionWrapper extends Component {
         
     onCharacterSubmit(data) {
         this.setState({rankedWhiskies: data});
-        this.props.onComplete();
     }
 
 
@@ -42,7 +41,7 @@ export default class QuestionWrapper extends Component {
         <CharacterWrapper
           stage={this.props.questionSet}
           onProgressChange={this.onCharacterSelect}
-          characterSubmit={this.onCharacterSelect}
+          characterSubmit={this.onCharacterSubmit}
           currentWhiskies={this.state.styleWhiskies}
         />
       );

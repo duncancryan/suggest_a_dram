@@ -48,10 +48,10 @@ export default class CharacterWrapper extends Component {
 
     // Initialise empty array
     const ranked = [];
-    if (this.props.currentWhiskies > 0) {
+    if (this.props.currentWhiskies.length > 0) {
       // While loop will carry on populating until we reach ten whiskies, or, if less than ten were passed down it will rank these
-      while (ranked.length() < this.props.currentWhiskies.length() || ranked.length() < 10) {
-        for (let whisky in this.props.currentWhiskies) {
+      while (ranked.length < this.props.currentWhiskies.length || ranked.length < 10) {
+        for (let whisky of this.props.currentWhiskies) {
           // find exact and push
           if (whisky.attributes.element_score === this.state.element_score) {
             if (whisky.attributes.fruit_score === this.state.fruit_score) {
@@ -106,6 +106,7 @@ export default class CharacterWrapper extends Component {
 
    submit() {
     const data = this.matchWhiskies();
+    console.log(data);
     this.props.characterSubmit(data);
   }
 
