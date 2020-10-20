@@ -27,52 +27,52 @@ export default class QuestionWrapper extends Component {
         this.props.onComplete();
     }
 
-    onCharacterSelect(){
-        this.props.onComplete();
+
+  onCharacterSelect() {
+    this.props.onComplete();
+  }
+
+  questionSet() {
+    if (this.props.questionSet === 0) {
+      return <StyleWrapper onProgressChange={this.onSubmitStyle} />;
     }
 
-    questionSet() {
-
-        if (this.props.questionSet === 0){
-            return <StyleWrapper onProgressChange={this.onSubmitStyle} />
-        } 
-
-        if (this.props.questionSet > 0){
-            return (
-            <CharacterWrapper stage={this.props.questionSet} 
-                onProgressChange={this.onCharacterSelect} 
-                characterSubmit={this.onCharacterSelect}
-                currentWhiskies={this.state.styleWhiskies}
-             />
-             )
-        } 
-
-        // if (this.state.styleWhiskies.length > 0){  
-        // } else {
-        //     return <Typography variant="body1">Sorry couldn't find any whiskies matching your request. Please try again</Typography>
-        // }
-
+    if (this.props.questionSet > 0) {
+      return (
+        <CharacterWrapper
+          stage={this.props.questionSet}
+          onProgressChange={this.onCharacterSelect}
+          characterSubmit={this.onCharacterSelect}
+          currentWhiskies={this.state.styleWhiskies}
+        />
+      );
     }
 
-    render(){
+    // if (this.state.styleWhiskies.length > 0){
+    // } else {
+    //     return <Typography variant="body1">Sorry couldn't find any whiskies matching your request. Please try again</Typography>
+    // }
+  }
 
-        return(
-            <Fragment>
-                {this.questionSet()}
+  displayState() {
 
-                <Router>
-                    <Fragment>
-
-                        <Switch>
-                        <Route exact path="/result" render={() => {
-                            return <ResultWrapper whiskies={this.state.rankedWhiskies} />
-                        }} />
-                        </Switch>
-
-                    </Fragment>
-                </Router>
-
-            </Fragment>
-        )
+    if (this.state.rankedWhiskies.length === 0) {
+      return this.questionSet()
+    } else {
+      return <ResultWrapper whiskies={this.state.rankedWhiskies} />
     }
+
+  }
+
+  render() {
+    return (
+
+      <Fragment>
+
+       {this.displayState()}
+
+      </Fragment>
+
+    );
+  }
 }

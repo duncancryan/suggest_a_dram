@@ -39,6 +39,7 @@ export default class CharacterWrapper extends Component {
     // Binds
     this.onTagSelect = this.onTagSelect.bind(this);
     this.matchWhiskies = this.matchWhiskies.bind(this);
+    this.submit = this.submit.bind(this);
   }
 
   // Methods
@@ -103,10 +104,8 @@ export default class CharacterWrapper extends Component {
     this.props.onProgressChange();
   }
 
-  async submit() {
+   submit() {
     const data = this.matchWhiskies();
-    await
-    // this.setState({test: data})
     this.props.characterSubmit(data);
   }
 
@@ -182,7 +181,7 @@ export default class CharacterWrapper extends Component {
   buttonDisplay() {
 
     if (this.props.stage > 6) {
-      return <Button variant="contained" colour="secondary" href="/result" onClick={this.submit}>Finish</Button>
+        return <Button variant="contained" colour="secondary" onClick={this.submit}>Finish</Button>
     }
 
   }

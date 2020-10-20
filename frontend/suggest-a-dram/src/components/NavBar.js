@@ -30,7 +30,7 @@ export default function NavBar() {
 
                         <ButtonGroup variant="contained" color="secondary" size="large">
                             <Button href="/" startIcon={<HomeRoundedIcon />}>Home</Button>
-                            <Button href="/start" startIcon={<SearchRoundedIcon />}>Suggest a Whisky</Button>
+                            <Button href="/quiz" startIcon={<SearchRoundedIcon />}>Suggest a Whisky</Button>
                             <Button href="/all" startIcon={<LocalBarRoundedIcon />}>All Whiskies</Button>
                             <Button href="/auth" startIcon={<AccountCircleRoundedIcon />}>Login</Button>
                         </ButtonGroup>
