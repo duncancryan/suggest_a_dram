@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import CharacterWrapper from "./CharacterWrapper";
-import ResultWrapper from "./ResultWrapper";
-import StyleWrapper from "./StyleWrapper";
+import React, {Component, Fragment} from 'react';
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import CharacterWrapper from './CharacterWrapper';
+import ResultWrapper from './ResultWrapper';
+import StyleWrapper from './StyleWrapper';
 
 export default class QuestionWrapper extends Component {
   constructor(props) {
