@@ -54,26 +54,25 @@ export default class QuestionWrapper extends Component {
     // }
   }
 
+  displayState() {
+
+    if (this.state.rankedWhiskies.length === 0) {
+      return this.questionSet()
+    } else {
+      return <ResultWrapper whiskies={this.state.rankedWhiskies} />
+    }
+
+  }
+
   render() {
     return (
-      <Router>
-        <Fragment>
 
-            {this.questionSet()}
-            
-          <Switch>
-            <Route
-              exact
-              path="/result"
-              render={() => {
-                return (
-                  <ResultWrapper whiskies={this.state.characterWhiskies} />
-                );
-              }}
-            />
-          </Switch>
-        </Fragment>
-      </Router>
+      <Fragment>
+
+       {this.displayState()}
+
+      </Fragment>
+
     );
   }
 }

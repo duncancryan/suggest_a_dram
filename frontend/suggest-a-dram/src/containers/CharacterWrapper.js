@@ -124,7 +124,7 @@ export default class CharacterWrapper extends Component {
   buttonDisplay() {
 
     if (this.props.stage > 6) {
-        return <Button variant="contained" colour="secondary" href="/result" onClick={this.submit}>Finish</Button>
+        return <Button variant="contained" colour="secondary" onClick={this.submit}>Finish</Button>
     }
 
   }
