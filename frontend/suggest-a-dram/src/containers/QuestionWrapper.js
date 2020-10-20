@@ -1,39 +1,45 @@
-import React, {Component, Fragment} from 'react';
+import React, { Component, Fragment } from 'react';
 import CharacterWrapper from './CharacterWrapper';
 import ResultWrapper from './ResultWrapper';
 import StyleWrapper from './StyleWrapper';
 
 export default class QuestionWrapper extends Component {
 
-  constructor(props){
-      super(props)
-      this.state = {
-          styleWhiskies: [],
-          rankedWhiskies: []
-      }
-      // Binds
-      this.onSubmitStyle = this.onSubmitStyle.bind(this);
-      this.onCharacterSelect = this.onCharacterSelect.bind(this);
-      this.onCharacterSubmit = this.onCharacterSubmit.bind(this);
-      this.displayState = this.displayState.bind(this);
+  constructor(props) {
+    super(props)
+    this.state = {
+      styleWhiskies: [],
+      rankedWhiskies: []
+    }
+    // Binds
+    this.onSubmitStyle = this.onSubmitStyle.bind(this);
+    this.onCharacterSelect = this.onCharacterSelect.bind(this);
+    this.onCharacterSubmit = this.onCharacterSubmit.bind(this);
+    this.displayState = this.displayState.bind(this);
   }
 
-  onSubmitStyle(data){
-      if (data.length > 0) {
-        this.setState({styleWhiskies: data});
-        this.props.onComplete("positive");
-      } else {
-        this.props.onComplete("negative");
-      }
+  onSubmitStyle(data) {
+    if (data.length > 0) {
+      this.setState({ styleWhiskies: data });
+      this.props.onComplete("positive");
+    } else {
+      this.props.onComplete("negative");
+    }
   }
-        
+
   onCharacterSubmit(data) {
-      this.setState({rankedWhiskies: data});
+    this.setState({ rankedWhiskies: data });
   }
 
 
   onCharacterSelect() {
     this.props.onComplete("positive");
+  }
+
+  imageProgression() {
+    for (let i = this.props.questionSet; i < 6; i++) {
+      return <img src={this.props.images[i]} />
+    }
   }
 
   questionSet() {
@@ -43,12 +49,15 @@ export default class QuestionWrapper extends Component {
 
     if (this.props.questionSet > 0) {
       return (
-        <CharacterWrapper
-          stage={this.props.questionSet}
-          onProgressChange={this.onCharacterSelect}
-          characterSubmit={this.onCharacterSubmit}
-          currentWhiskies={this.state.styleWhiskies}
-        />
+        <Fragment>
+          <CharacterWrapper
+            stage={this.props.questionSet}
+            onProgressChange={this.onCharacterSelect}
+            characterSubmit={this.onCharacterSubmit}
+            currentWhiskies={this.state.styleWhiskies}
+          />
+          {this.imageProgression()}
+        </Fragment>
       );
     } else {
       return <p>Sorry cant find any whiskies with that style</p>

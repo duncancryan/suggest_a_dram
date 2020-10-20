@@ -5,8 +5,13 @@
     margin: 50%;
 }
 
+.glass-image-on-character-page{
+
+}
+
 .background {
     background: url('https://www.trumpgolfscotland.com/images/dynamic/getImage.gif?ID=100000800');
+    background-repeat: no-repeat;
 }
 
 .slider-page {
@@ -17,6 +22,6 @@
 }
 
 .slider-section{
-    background: grey;
-    padding: 30px;
+    padding: 10px 30px 20px;
+    text-align: center;
 }

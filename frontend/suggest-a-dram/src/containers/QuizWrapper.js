@@ -1,5 +1,5 @@
-import { Grid, Typography } from '@material-ui/core';
-import React, {Component} from 'react';
+import { Grid, Typography, Paper } from '@material-ui/core';
+import React, { Component } from 'react';
 import QuestionWrapper from './QuestionWrapper';
 import EmptyGlass from '../images/empty.png';
 import FirstFill from '../images/first-fill.png'
@@ -9,10 +9,10 @@ import FourthFill from '../images/fourth-fill.png'
 import FullGlass from '../images/full-glass.png'
 import '../images/image-css.css'
 
-export default class QuizContainer extends Component{
+export default class QuizContainer extends Component {
 
     // Constructor
-    constructor(props){
+    constructor(props) {
         super(props)
         // State
         this.state = {
@@ -26,34 +26,35 @@ export default class QuizContainer extends Component{
 
     // Methods
 
-    onProgressChange(status){
-        if (status === "negative"){
+    onProgressChange(status) {
+        if (status === "negative") {
             const progress_state = this.state.progress - 1
-            this.setState({progress: progress_state});
+            this.setState({ progress: progress_state });
         } else {
             const progress_state = this.state.progress + 1
-            this.setState({progress: progress_state});
+            this.setState({ progress: progress_state });
         }
     }
 
     // Render
 
-    render(){
+    render() {
 
-        return(
+        return (
             <div className='background'>
-            <main className="slider-page">
-                <Grid container justify="space-evenly">
-                    <Grid item className="slider-section">
-                        <QuestionWrapper onComplete={this.onProgressChange} questionSet={this.state.progress} />
-                    </Grid>
+                <main className="slider-page">
+                    <Grid container justify="space-evenly">
+                        <Paper className="slider-section">
+                            <Grid item>
+                                <QuestionWrapper onComplete={this.onProgressChange} questionSet={this.state.progress} images={this.state.bottle_image_urls} />
+                            </Grid>
+                        </Paper>
 
-                    <Grid item>
-                        {/* <Typography variant="h1">This is the whisky image</Typography> */}
-                        <img className="glass-image" src={EmptyGlass} />
+                        {/* <Grid item>
+                            <img className="glass-image" src={EmptyGlass} />
+                        </Grid> */}
                     </Grid>
-                </Grid>
-            </main>
+                </main>
             </div>
         )
     }
