@@ -1,11 +1,12 @@
 import { Grid, Typography, Paper } from '@material-ui/core';
 import React, { Component } from 'react';
 import QuestionWrapper from './QuestionWrapper';
-import EmptyGlass from '../images/whisky-state-1.svg';
-import FirstFill from '../images/whisky-state-2.svg';
-import SecondFill from '../images/whisky-state-3.svg';
-import ThirdFill from '../images/whisky-state-4.svg';
-import FourthFill from '../images/whisky-state-5.svg';
+import EmptyGlass from '../images/whisky-state-0.svg';
+import FirstFill from '../images/whisky-state-1.svg';
+import SecondFill from '../images/whisky-state-2.svg';
+import ThirdFill from '../images/whisky-state-3.svg';
+import FourthFill from '../images/whisky-state-4.svg';
+import FithGlass from '../images/whisky-state-5.svg';
 import FullGlass from '../images/whisky-state-6.svg';
 import '../images/image-css.css'
 import BottleImage from '../components/BottleImage';
@@ -17,7 +18,7 @@ export default class QuizContainer extends Component {
         super(props)
         // State
         this.state = {
-            bottle_image_urls: [EmptyGlass, FirstFill, SecondFill, ThirdFill, FourthFill, FullGlass],
+            bottle_image_urls: [EmptyGlass, FirstFill, SecondFill, ThirdFill, FourthFill, FithGlass, FullGlass],
             progress: 0
         }
 
