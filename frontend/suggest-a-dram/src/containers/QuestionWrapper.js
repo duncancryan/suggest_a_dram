@@ -18,8 +18,12 @@ export default class QuestionWrapper extends Component {
     }
 
     onSubmitStyle(data){
-        this.setState({styleWhiskies: data});
-        this.props.onComplete();
+        if (data.length > 0) {
+          this.setState({styleWhiskies: data});
+          this.props.onComplete("positive");
+        } else {
+          this.props.onComplete("negative");
+        }
     }
         
     onCharacterSubmit(data) {
@@ -28,7 +32,7 @@ export default class QuestionWrapper extends Component {
 
 
   onCharacterSelect() {
-    this.props.onComplete();
+    this.props.onComplete("positive");
   }
 
   questionSet() {
@@ -45,6 +49,8 @@ export default class QuestionWrapper extends Component {
           currentWhiskies={this.state.styleWhiskies}
         />
       );
+    } else {
+      return <p>Sorry cant find any whiskies with that style</p>
     }
 
     // if (this.state.styleWhiskies.length > 0){

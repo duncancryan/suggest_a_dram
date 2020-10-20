@@ -20,21 +20,19 @@ export default class StyleWrapper extends Component {
         this.onSmokeChange = this.onSmokeChange.bind(this)
         this.onSweetnessChange = this.onSweetnessChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.matchOnStyle = this.matchOnStyle.bind(this);
 
     }
     // Methods
     matchOnStyle(){
-        const whiskies = [];
         const request = new Request();
-        request.get(`/api/whiskies/${this.state.body}/${this.state.richness}/${this.state.smoke}/${this.state.sweetness}`)
-        .then(data => data.map(item => whiskies.push(item)));
-        return whiskies;
+        return request.get(`/api/whiskies/${this.state.body}/${this.state.richness}/${this.state.smoke}/${this.state.sweetness}`)
     }
 
     async handleSubmit(){
-        const data = this.matchOnStyle();
-        await
-        this.props.onProgressChange(data);
+        this.matchOnStyle()
+        .then(data => this.props.onProgressChange(data));
+        // this.dataCheck(data);
     }
 
     onBodyChange(body){
