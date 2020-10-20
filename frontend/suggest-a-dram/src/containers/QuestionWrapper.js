@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import CharacterWrapper from './CharacterWrapper';
 import ResultWrapper from './ResultWrapper';
 import StyleWrapper from './StyleWrapper';
+import BottleImage from '../components/BottleImage'
 
 export default class QuestionWrapper extends Component {
 
@@ -35,13 +36,7 @@ export default class QuestionWrapper extends Component {
   onCharacterSelect() {
     this.props.onComplete("positive");
   }
-
-  imageProgression() {
-    for (let i = this.props.questionSet; i < 6; i++) {
-      return <img src={this.props.images[i]} />
-    }
-  }
-
+  
   questionSet() {
     if (this.props.questionSet === 0) {
       return <StyleWrapper onProgressChange={this.onSubmitStyle} />;
@@ -55,18 +50,13 @@ export default class QuestionWrapper extends Component {
             onProgressChange={this.onCharacterSelect}
             characterSubmit={this.onCharacterSubmit}
             currentWhiskies={this.state.styleWhiskies}
+            images={this.props.images}
           />
-          {this.imageProgression()}
         </Fragment>
       );
     } else {
       return <p>Sorry cant find any whiskies with that style</p>
     }
-
-    // if (this.state.styleWhiskies.length > 0){
-    // } else {
-    //     return <Typography variant="body1">Sorry couldn't find any whiskies matching your request. Please try again</Typography>
-    // }
   }
 
   displayState() {

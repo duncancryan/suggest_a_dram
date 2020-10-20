@@ -8,6 +8,7 @@ import ThirdFill from '../images/third-fill.png'
 import FourthFill from '../images/fourth-fill.png'
 import FullGlass from '../images/full-glass.png'
 import '../images/image-css.css'
+import BottleImage from '../components/BottleImage';
 
 export default class QuizContainer extends Component {
 
@@ -50,9 +51,9 @@ export default class QuizContainer extends Component {
                             </Grid>
                         </Paper>
 
-                        {/* <Grid item>
-                            <img className="glass-image" src={EmptyGlass} />
-                        </Grid> */}
+                        <Grid item>
+                            <BottleImage progress={this.state.progress} images={this.state.bottle_image_urls}/>
+                        </Grid>
                     </Grid>
                 </main>
             </div>
