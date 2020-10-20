@@ -1,0 +1,19 @@
+.glass-image{
+    width:200px;
+    height: 200px;
+    top: 50%;
+    margin: 50%;
+}
+
+/* .background {
+    background: url('https://www.trumpgolfscotland.com/images/dynamic/getImage.gif?ID=100000800');
+    background-repeat: no-repeat;
+} */
+
+.slider-page {
+    width: 70%;
+    margin: 0 auto;
+    padding: 30px;}.slider-section{
+    padding: 10px 30px 20px;
+    text-align: center;
+}
