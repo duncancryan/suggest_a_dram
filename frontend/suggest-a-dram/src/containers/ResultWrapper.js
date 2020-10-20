@@ -1,5 +1,5 @@
 // Imports
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Typography, Paper, Divider, Grid } from '@material-ui/core';
 import WhiskyItem from '../components/WhiskyItem';
 
@@ -19,6 +19,25 @@ export default function ResultWrapper(props) {
 
     })
 
+    const displayState = function() {
+
+        if (props.whiskies.length > 1){
+            return (
+                <Fragment>
+
+                    <Typography variant="h4">We also suggest...</Typography>
+
+                    <Grid container justify="space-evenly">
+
+                        {others}
+
+                    </Grid>
+                </Fragment>
+            )
+        }
+
+    }
+
     // Render
     return(
         <div className="result-wrapper">
@@ -34,16 +53,8 @@ export default function ResultWrapper(props) {
                         <Typography variant="h3">We think you'll love this!</Typography>
 
                         <WhiskyItem whisky={props.whiskies[0]} size="large" />
-                    
-                        <Divider />
 
-                        <Typography variant="h4">We also suggest...</Typography>
-
-                        <Grid container justify="space-evenly">
-
-                            {others}
-
-                        </Grid>
+                        {displayState()}
 
                     </div>
 

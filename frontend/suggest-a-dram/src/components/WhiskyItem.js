@@ -22,16 +22,23 @@ const useStyles = makeStyles({
         width: "80%",
         textAlign: 'left'
     },
+    contentSmall: {
+        width: "100%",
+        textAlign: "center"
+    },
     chips: {
         margin: "10px 0px 10px 0px"
     },
     link: {
         margin: "10px 0px 0px 0px"
     },
+    linkSmall: {
+        width: "100%"
+    },
     rootSmall: {
         background: grey[600],
         color: grey[50],
-        margin: "10px 5px 10px 5px",
+        margin: "10px 0px 10px 0px",
         display: 'flex',
     }
   });
@@ -80,7 +87,7 @@ export default function WhiskyItem(props) {
     return(
         <Card className={(props.size === "small") ? classes.rootSmall : classes.root}>
             
-            <CardContent className={classes.content}>
+            <CardContent className={(props.size === "small") ? classes.contentSmall : classes.content}>
 
                 {title()}
 
@@ -106,7 +113,7 @@ export default function WhiskyItem(props) {
 
                 {description()}
 
-                <Button variant="contained" color="secondary" className={classes.link} href={props.whisky['meta-data'].pagemd['product-url']} target="_blank">Learn More</Button>
+                <Button variant="contained" color="secondary" className={(props.size === "small" ? classes.linkSmall : classes.link)} href={props.whisky['meta-data'].pagemd['product-url']} target="_blank">Learn More</Button>
 
             </CardContent>
 

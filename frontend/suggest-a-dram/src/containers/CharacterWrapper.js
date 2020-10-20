@@ -76,7 +76,7 @@ export default class CharacterWrapper extends Component {
                 }
               }
             }
-          } 
+          }
           // findthose that have scores +- 1 and push
           if (this.state.element_score === whisky.attributes.element_score + 1 || this.state.element_score === whisky.attributes.element_score - 1) {
             // console.log("entered +- 1")
@@ -119,7 +119,7 @@ export default class CharacterWrapper extends Component {
     // return ranked;
     if (ranked.length > 0) {
       return ranked;
-    } 
+    }
     else {
       return this.props.currentWhiskies.slice(0, 9);
     }
@@ -205,7 +205,6 @@ export default class CharacterWrapper extends Component {
   }
 
   buttonDisplay() {
-
     if (this.props.stage > 6) {
       return <Button variant="contained" colour="secondary" onClick={this.submit}>Finish</Button>
     }
@@ -215,15 +214,15 @@ export default class CharacterWrapper extends Component {
   //Render
   render() {
     return (
-      <Fragment>
-        <Typography variant="h3">Time to choose some character!</Typography>
-        <Typography variant="h4">{this.props.stage - 1}/6</Typography>
+        <Fragment>
+          <Typography variant="h3">Time to choose some character!</Typography>
+          <Typography variant="h4">{this.props.stage - 1}/6</Typography>
 
-        <Grid container justify="space-evenly">
-          {this.chipSet()}
-          {this.buttonDisplay()}
-        </Grid>
-
+          <Grid container justify="space-evenly">
+            {this.chipSet()}
+            {this.buttonDisplay()}
+          </Grid>
+          
       </Fragment>
     );
   }

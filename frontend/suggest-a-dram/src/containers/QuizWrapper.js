@@ -1,15 +1,24 @@
-import { Grid, Typography } from '@material-ui/core';
-import React, {Component} from 'react';
+import { Grid, Typography, Paper } from '@material-ui/core';
+import React, { Component } from 'react';
 import QuestionWrapper from './QuestionWrapper';
+import EmptyGlass from '../images/whisky-state-0.svg';
+import FirstFill from '../images/whisky-state-1.svg';
+import SecondFill from '../images/whisky-state-2.svg';
+import ThirdFill from '../images/whisky-state-3.svg';
+import FourthFill from '../images/whisky-state-4.svg';
+import FithGlass from '../images/whisky-state-5.svg';
+import FullGlass from '../images/whisky-state-6.svg';
+import '../images/image-css.css'
+import BottleImage from '../components/BottleImage';
 
-export default class QuizContainer extends Component{
+export default class QuizContainer extends Component {
 
     // Constructor
-    constructor(props){
+    constructor(props) {
         super(props)
         // State
         this.state = {
-            bottle_image_urls: [],
+            bottle_image_urls: [EmptyGlass, FirstFill, SecondFill, ThirdFill, FourthFill, FithGlass, FullGlass],
             progress: 0
         }
 
@@ -19,34 +28,33 @@ export default class QuizContainer extends Component{
 
     // Methods
 
-    onProgressChange(status){
-        if (status === "negative"){
+    onProgressChange(status) {
+        if (status === "negative") {
             const progress_state = this.state.progress - 1
-            this.setState({progress: progress_state});
+            this.setState({ progress: progress_state });
         } else {
             const progress_state = this.state.progress + 1
-            this.setState({progress: progress_state});
+            this.setState({ progress: progress_state });
         }
     }
 
     // Render
 
-    render(){
+    render() {
+        return (
+                <main className="slider-page">
+                    <Grid container justify="space-evenly">
+                        <Paper className="slider-section">
+                            <Grid item>
+                                <QuestionWrapper onComplete={this.onProgressChange} questionSet={this.state.progress} />
+                            </Grid>
+                        </Paper>
 
-        return(
-            <main>
-                <Grid container justify="space-evenly">
-
-                    <Grid item>
-                        <QuestionWrapper onComplete={this.onProgressChange} questionSet={this.state.progress} />
+                        <Grid item>
+                            <BottleImage progress={this.state.progress} images={this.state.bottle_image_urls}/>
+                        </Grid>
                     </Grid>
-
-                    <Grid item>
-                        <Typography variant="h1">This is the whisky image</Typography>
-                    </Grid>
-
-                </Grid>
-            </main>
+                </main>
         )
     }
 }
