@@ -1,6 +1,6 @@
 // Imports
 import { Typography, Paper } from '@material-ui/core';
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import SearchBar from '../components/SearchBar';
 import WhiskyItem from '../components/WhiskyItem';
 import Request from '../helpers/request';
@@ -15,29 +15,67 @@ export default class ResultWrapper extends Component {
 
         // State
         this.state = {
-            whiskies: []
+            whiskies: [],
+            filteredWhiskies: [],
+            filtered: false
         }
+
+        // Binds
+        this.onSearchChange = this.onSearchChange.bind(this);
+        // this.displayState = this.displayState.bind(this);
 
     }
 
     // Methods
     componentDidMount() {
         const request = new Request();
-        
+
         request.get('/api/whiskies')
-        .then(data => this.setState({whiskies: data}));
+            .then(data => this.setState({ whiskies: data }));
     }
 
-    // Render
-    render() {
+    onSearchChange(value) {
+        const filtered = [];
+        for(const whisky of this.state.whiskies){
+            const lowerCasedName = whisky['meta-data'].name.toLowerCase();
+            const lowerCaseTags = whisky.attributes.character.join().toLowerCase();
+            if (lowerCasedName.indexOf(value.toLowerCase()) > -1 || lowerCaseTags.indexOf(value.toLowerCase()) > -1){
+                filtered.push(whisky);
+            }
+        }
+        this.setState({ filteredWhiskies: filtered })
+        this.setState({ filtered: true })
+    }
+
+
+
+    displayState(){
 
         const whiskies = this.state.whiskies.map((whisky, index) => {
             return <WhiskyItem whisky={whisky} key={index} />
         })
 
-        return(
+        const searchResults = this.state.filteredWhiskies.map((whisky, index) => {
+            return <WhiskyItem whisky={whisky} key={index} />
+        })
+
+        if (!this.state.filtered){
+            return whiskies;
+        } else {
+            return searchResults;
+        }
+    }
+
+
+
+    // Render
+    render() {
+
+
+
+        return (
             <div className="result-wrapper">
-                
+
                 <Paper>
 
                     <div className="result-content">
@@ -46,13 +84,14 @@ export default class ResultWrapper extends Component {
 
                         <div className="results-search-area">
 
-                            <SearchBar />
+                            <SearchBar onSearchChange={this.onSearchChange} />
 
                         </div>
 
                         <div className="results-whisky-wrapper">
-                        
-                            {whiskies}
+                            
+                            {this.displayState()}
+                            {/* {whiskies} */}
 
                         </div>
 
