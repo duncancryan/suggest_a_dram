@@ -37,8 +37,9 @@ export default class ResultWrapper extends Component {
     onSearchChange(value) {
         const filtered = [];
         for(const whisky of this.state.whiskies){
-            const lowerCased = whisky['meta-data'].name.toLowerCase();
-            if (lowerCased.indexOf(value.toLowerCase()) > -1){
+            const lowerCasedName = whisky['meta-data'].name.toLowerCase();
+            const lowerCaseTags = whisky.attributes.character.join().toLowerCase();
+            if (lowerCasedName.indexOf(value.toLowerCase()) > -1 || lowerCaseTags.indexOf(value.toLowerCase()) > -1){
                 filtered.push(whisky);
             }
         }
