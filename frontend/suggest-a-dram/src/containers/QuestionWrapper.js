@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {BrowserRouter as Route, Router, Switch } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CharacterWrapper from './CharacterWrapper';
 import ResultWrapper from './ResultWrapper';
 import StyleWrapper from './StyleWrapper';
@@ -9,7 +9,6 @@ export default class QuestionWrapper extends Component {
         super(props)
         this.state = {
             styleWhiskies: [],
-            characterWhiskies: [],
             rankedWhiskies: []
         }
         // Binds
@@ -24,7 +23,7 @@ export default class QuestionWrapper extends Component {
     }
         
     onCharacterSubmit(data) {
-        this.setState({characterWhiskies: data});
+        this.setState({rankedWhiskies: data});
         this.props.onComplete();
     }
 
@@ -66,7 +65,7 @@ export default class QuestionWrapper extends Component {
 
                         <Switch>
                         <Route exact path="/result" render={() => {
-                            return <ResultWrapper whiskies={this.state.characterWhiskies} />
+                            return <ResultWrapper whiskies={this.state.rankedWhiskies} />
                         }} />
                         </Switch>
 

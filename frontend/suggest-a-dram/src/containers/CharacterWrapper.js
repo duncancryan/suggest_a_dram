@@ -32,11 +32,13 @@ export default class CharacterWrapper extends Component {
         spice: ["Cinnamon", "Aniseed", "Mint", "Black Pepper", "Rosemary", "Nutmeg"],
         floral: ["Grass", "Heather", "Honeysuckle", "Rose", "Hay", "Elderflower"],
         fatty: ["Butter", "Cream", "Almond", "Hazelnut", "Coconut", "Olive"],
+        // test: []
       },
     };
 
     // Binds
     this.onTagSelect = this.onTagSelect.bind(this);
+    this.matchWhiskies = this.matchWhiskies.bind(this);
   }
 
   // Methods
@@ -45,45 +47,46 @@ export default class CharacterWrapper extends Component {
 
     // Initialise empty array
     const ranked = [];
-
-    // While loop will carry on populating until we reach ten whiskies, or, if less than ten were passed down it will rank these
-    while (ranked.length() < this.props.currentWhiskies.length() || ranked.length() < 10) {
-      for (whisky in this.props.currentWhiskies) {
-        // find exact and push
-        if (whisky.attributes.element_score == this.state.element_score) {
-          if (whisky.attributes.fruit_score == this.state.fruit_score) {
-            if (whisky.attributes.confectionery_score == this.state.confectionery_score) {
-              if (whisky.attributes.spice_score == this.state.spice_score) {
-                if (whisky.attributes.floral_score == this.state.floral_score) {
-                  if (whisky.attributes.fatty_score == this.state.fatty_score) {
+    if (this.props.currentWhiskies > 0) {
+      // While loop will carry on populating until we reach ten whiskies, or, if less than ten were passed down it will rank these
+      while (ranked.length() < this.props.currentWhiskies.length() || ranked.length() < 10) {
+        for (let whisky in this.props.currentWhiskies) {
+          // find exact and push
+          if (whisky.attributes.element_score === this.state.element_score) {
+            if (whisky.attributes.fruit_score === this.state.fruit_score) {
+              if (whisky.attributes.confectionery_score === this.state.confectionery_score) {
+                if (whisky.attributes.spice_score === this.state.spice_score) {
+                  if (whisky.attributes.floral_score === this.state.floral_score) {
+                    if (whisky.attributes.fatty_score === this.state.fatty_score) {
+                      ranked.push(whisky);
+                      // findthose that have scores +- 1 and push
+                    }
+                  }
+                }
+              }
+            }
+          }
+          if (this.state.element_score === whisky.attributes.element_score + 1 || this.state.element_score === whisky.attributes.element_score - 1) {
+          if (this.state.fruit_score === whisky.attributes.fruit_score + 1 || this.state.fruit_score === whisky.attributes.fruit_score - 1) {
+            if (this.state.confectionery_score === whisky.attributes.confectionery_score + 1 || this.state.confectionery_score === whisky.attributes.confectionery_score - 1) {
+              if (this.state.spice_score === whisky.attributes.spice_score + 1 || this.state.spice_score === whisky.attributes.spice_score - 1) {
+                if (this.state.floral_score === whisky.attributes.floral_score + 1 || this.state.floral_score === whisky.attributes.floral_score - 1) {
+                  if (this.state.fatty_score === whisky.attributes.fatty_score + 1 || this.state.fatty_score === whisky.attributes.fatty_score - 1) {
                     ranked.push(whisky);
-                    // findthose that have scores +- 1 and push
-                    if (this.state.element_score == whisky.attributes.element_score + 1 || this.state.element_score == whisky.attributes.element_score - 1) {
-                      if (this.state.fruit_score == whisky.attributes.fruit_score + 1 || this.state.fruit_score == whisky.attributes.fruit_score - 1) {
-                        if (this.state.confectionery_score == whisky.attributes.confectionery_score + 1 || this.state.confectionery_score == whisky.attributes.confectionery_score - 1) {
-                          if (this.state.spice_score == whisky.attributes.spice_score + 1 || this.state.spice_score == whisky.attributes.spice_score - 1) {
-                            if (this.state.floral_score == whisky.attributes.floral_score + 1 || this.state.floral_score == whisky.attributes.floral_score - 1) {
-                              if (this.state.fatty_score == whisky.attributes.fatty_score + 1 || this.state.fatty_score == whisky.attributes.fatty_score - 1) {
-                                ranked.push(whisky);
-                                // find those that have scores +- 2 and push
-                                if (this.state.element_score == whisky.attributes.element_score + 2 || this.state.element_score == whisky.attributes.element_score - 2) {
-                                  if (this.state.fruit_score == whisky.attributes.fruit_score + 2 || this.state.fruit_score == whisky.attributes.fruit_score - 2) {
-                                    if (this.state.confectionery_score == whisky.attributes.confectionery_score + 2 || this.state.confectionery_score == whisky.attributes.confectionery_score - 2) {
-                                      if (this.state.spice_score == whisky.attributes.spice_score + 2 || this.state.spice_score == whisky.attributes.spice_score - 2) {
-                                        if (this.state.floral_score == whisky.attributes.floral_score + 2 || this.state.floral_score == whisky.attributes.floral_score - 2) {
-                                          if (this.state.fatty_score == whisky.attributes.fatty_score + 2 || this.state.fatty_score == whisky.attributes.fatty_score - 2) {
-                                            ranked.push(whisky);
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
+                                  // find those that have scores +- 2 and push
                                 }
                               }
                             }
                           }
                         }
                       }
+          if (this.state.element_score === whisky.attributes.element_score + 2 || this.state.element_score === whisky.attributes.element_score - 2) {
+            if (this.state.fruit_score === whisky.attributes.fruit_score + 2 || this.state.fruit_score === whisky.attributes.fruit_score - 2) {
+              if (this.state.confectionery_score === whisky.attributes.confectionery_score + 2 || this.state.confectionery_score === whisky.attributes.confectionery_score - 2) {
+                if (this.state.spice_score === whisky.attributes.spice_score + 2 || this.state.spice_score === whisky.attributes.spice_score - 2) {
+                  if (this.state.floral_score === whisky.attributes.floral_score + 2 || this.state.floral_score === whisky.attributes.floral_score - 2) {
+                    if (this.state.fatty_score === whisky.attributes.fatty_score + 2 || this.state.fatty_score === whisky.attributes.fatty_score - 2) {
+                      ranked.push(whisky);
                     }
                   }
                 }
@@ -100,10 +103,11 @@ export default class CharacterWrapper extends Component {
     this.props.onProgressChange();
   }
 
-  submit() {
+  async submit() {
     const data = this.matchWhiskies();
     await
-    this.props.characterSubmit(data);  
+    // this.setState({test: data})
+    this.props.characterSubmit(data);
   }
 
   onTagSelect(tagType) {
