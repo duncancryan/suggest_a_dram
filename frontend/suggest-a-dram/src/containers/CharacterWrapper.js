@@ -40,16 +40,70 @@ export default class CharacterWrapper extends Component {
   }
 
   // Methods
+  // Definitely want to look into modularising the below at some point, but just wanted to write something basic that works first
   matchWhiskies() {
-      // This will match styledWhiskies with character based
+
+    // Initialise empty array
+    const ranked = [];
+
+    // While loop will carry on populating until we reach ten whiskies, or, if less than ten were passed down it will rank these
+    while (ranked.length() < this.props.currentWhiskies.length() || ranked.length() < 10) {
+      for (whisky in this.props.currentWhiskies) {
+        // find exact and push
+        if (whisky.attributes.element_score == this.state.element_score) {
+          if (whisky.attributes.fruit_score == this.state.fruit_score) {
+            if (whisky.attributes.confectionery_score == this.state.confectionery_score) {
+              if (whisky.attributes.spice_score == this.state.spice_score) {
+                if (whisky.attributes.floral_score == this.state.floral_score) {
+                  if (whisky.attributes.fatty_score == this.state.fatty_score) {
+                    ranked.push(whisky);
+                    // findthose that have scores +- 1 and push
+                    if (this.state.element_score == whisky.attributes.element_score + 1 || this.state.element_score == whisky.attributes.element_score - 1) {
+                      if (this.state.fruit_score == whisky.attributes.fruit_score + 1 || this.state.fruit_score == whisky.attributes.fruit_score - 1) {
+                        if (this.state.confectionery_score == whisky.attributes.confectionery_score + 1 || this.state.confectionery_score == whisky.attributes.confectionery_score - 1) {
+                          if (this.state.spice_score == whisky.attributes.spice_score + 1 || this.state.spice_score == whisky.attributes.spice_score - 1) {
+                            if (this.state.floral_score == whisky.attributes.floral_score + 1 || this.state.floral_score == whisky.attributes.floral_score - 1) {
+                              if (this.state.fatty_score == whisky.attributes.fatty_score + 1 || this.state.fatty_score == whisky.attributes.fatty_score - 1) {
+                                ranked.push(whisky);
+                                // find those that have scores +- 2 and push
+                                if (this.state.element_score == whisky.attributes.element_score + 2 || this.state.element_score == whisky.attributes.element_score - 2) {
+                                  if (this.state.fruit_score == whisky.attributes.fruit_score + 2 || this.state.fruit_score == whisky.attributes.fruit_score - 2) {
+                                    if (this.state.confectionery_score == whisky.attributes.confectionery_score + 2 || this.state.confectionery_score == whisky.attributes.confectionery_score - 2) {
+                                      if (this.state.spice_score == whisky.attributes.spice_score + 2 || this.state.spice_score == whisky.attributes.spice_score - 2) {
+                                        if (this.state.floral_score == whisky.attributes.floral_score + 2 || this.state.floral_score == whisky.attributes.floral_score - 2) {
+                                          if (this.state.fatty_score == whisky.attributes.fatty_score + 2 || this.state.fatty_score == whisky.attributes.fatty_score - 2) {
+                                            ranked.push(whisky);
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    return ranked;
   }
 
   nextStage() {
-      this.props.onProgressChange();
+    this.props.onProgressChange();
   }
 
   submit() {
-      // This will calculated matched whiskies and send them back up
+    const data = this.matchWhiskies();
+    await
+    this.props.characterSubmit(data);  
   }
 
   onTagSelect(tagType) {
@@ -71,51 +125,51 @@ export default class CharacterWrapper extends Component {
   }
 
   chipSet() {
-    if (this.props.stage < 7){
+    if (this.props.stage < 7) {
       return (
         <Fragment>
-            <Grid item >
-              <CharacterItem
+          <Grid item >
+            <CharacterItem
               type="element"
               text={this.state.tagArrays.elements[this.props.stage - 1]}
               onSelected={this.onTagSelect}
-              />
-            </Grid>
-            <Grid item>
-              <CharacterItem
+            />
+          </Grid>
+          <Grid item>
+            <CharacterItem
               type="fruit"
               text={this.state.tagArrays.fruit[this.props.stage - 1]}
               onSelected={this.onTagSelect}
-              />
-            </Grid>
-            <Grid item>
-              <CharacterItem
+            />
+          </Grid>
+          <Grid item>
+            <CharacterItem
               type="confectionery"
               text={this.state.tagArrays.confectionery[this.props.stage - 1]}
               onSelected={this.onTagSelect}
-              />
-            </Grid>
-            <Grid item>
-              <CharacterItem
+            />
+          </Grid>
+          <Grid item>
+            <CharacterItem
               type="spice"
               text={this.state.tagArrays.spice[this.props.stage - 1]}
               onSelected={this.onTagSelect}
-              />
-            </Grid>
-            <Grid item>
-              <CharacterItem
+            />
+          </Grid>
+          <Grid item>
+            <CharacterItem
               type="floral"
               text={this.state.tagArrays.floral[this.props.stage - 1]}
               onSelected={this.onTagSelect}
-              />
-            </Grid>
-            <Grid item>
-              <CharacterItem
+            />
+          </Grid>
+          <Grid item>
+            <CharacterItem
               type="fatty"
               text={this.state.tagArrays.fatty[this.props.stage - 1]}
               onSelected={this.onTagSelect}
-              />
-            </Grid>
+            />
+          </Grid>
         </Fragment>
       );
     }
@@ -124,7 +178,7 @@ export default class CharacterWrapper extends Component {
   buttonDisplay() {
 
     if (this.props.stage > 6) {
-        return <Button variant="contained" colour="secondary" href="/result" onClick={this.submit}>Finish</Button>
+      return <Button variant="contained" colour="secondary" href="/result" onClick={this.submit}>Finish</Button>
     }
 
   }
@@ -137,8 +191,8 @@ export default class CharacterWrapper extends Component {
         <Typography variant="h4">{this.props.stage - 1}/6</Typography>
 
         <Grid container justify="space-evenly">
-            {this.chipSet()}
-            {this.buttonDisplay()}
+          {this.chipSet()}
+          {this.buttonDisplay()}
         </Grid>
 
       </Fragment>
