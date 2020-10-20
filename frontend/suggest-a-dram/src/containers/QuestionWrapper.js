@@ -55,10 +55,10 @@ export default class QuestionWrapper extends Component {
     } else {
       return (
         <Fragment>
-          <Typography variant="h2">It's not you it's us!</Typography>
+          <Typography variant="h2">It's not you, it's us!</Typography>
           <div className="error-wrapper">
             <Typography variant="body1">Sorry, we couldn't find any whiskies that matched your style.</Typography>
-            <Typography variant="body1">Our database is still growing so we probibily haven't seen your style before!</Typography>
+            <Typography variant="body1">Our database is still growing so we probably haven't seen your style before!</Typography>
             <Typography variant="body2">Try again by clicking the button below</Typography>
           </div>
           <Button variant="contained" color="secondary" href="/quiz" className="quiz-button">Try again!</Button>
