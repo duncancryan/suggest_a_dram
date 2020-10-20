@@ -1,6 +1,13 @@
 import { Grid, Typography } from '@material-ui/core';
 import React, {Component} from 'react';
 import QuestionWrapper from './QuestionWrapper';
+import EmptyGlass from '../images/empty.png';
+import FirstFill from '../images/first-fill.png'
+import SecondFill from '../images/second-fill.png'
+import ThirdFill from '../images/third-fill.png'
+import FourthFill from '../images/fourth-fill.png'
+import FullGlass from '../images/full-glass.png'
+import '../images/image-css.css'
 
 export default class QuizContainer extends Component{
 
@@ -42,7 +49,8 @@ export default class QuizContainer extends Component{
                     </Grid>
 
                     <Grid item>
-                        <Typography variant="h1">This is the whisky image</Typography>
+                        {/* <Typography variant="h1">This is the whisky image</Typography> */}
+                        <img src={EmptyGlass} />
                     </Grid>
 
                 </Grid>
