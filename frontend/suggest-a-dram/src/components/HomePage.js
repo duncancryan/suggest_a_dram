@@ -10,7 +10,7 @@ export default function HomePage() {
                 <Typography variant="h3" gutterBottom>Find the perfect Whisky</Typography>
                 <Typography variant="body1" gutterBottom>Discover the most accurate flavour profiles of Scottish Whiskies</Typography>
                 <Typography variant="body1" gutterBottom>Simply select your flavour preferences and let us suggest a dram for you</Typography>
-                <Button variant="contained" color="secondary" size="large" href="/start">Start</Button>
+                <Button variant="contained" color="secondary" size="large" href="/quiz">Start</Button>
             </div>
         </main>
     )

@@ -67,6 +67,8 @@ if (root_result.status_code == 200):
 
     print("===========(URL retrieval phase)============")
 
+    link_count = 0
+
     for brand_link in brand_links:
 
         count = 0
@@ -87,12 +89,14 @@ if (root_result.status_code == 200):
                 product_links.append(link.attrs["href"])
                 print("getting data....")
                 count += 1
+                link_count += 1
 
         print(f"{brand_link} complete!")
 
         print("-----------------------")
 
     print("Retrieval complete!")
+    print(f"Grabbed {link_count} links")
     print("")
 
     # Start data grab
@@ -136,40 +140,32 @@ if (root_result.status_code == 200):
                     # Checks that there is a price
                     if whisky_soup.find("p", class_="product-action__price"):
                         
-                        # Checks to see if rating exists
-                        if whisky_soup.find("span", class_="review-overview__rating"):
+                        # Set the data for the whisky
+                        whisky["meta-data"]["pagemd"] = wsfunctions.setmdPageMeta(whisky_soup)
+                        whisky["meta-data"]["name"] = wsfunctions.setmdName(whisky_soup)
+                        whisky["meta-data"]["age"] = wsfunctions.setmdAge(whisky_soup)
+                        whisky["meta-data"]["price"] = wsfunctions.setmdPrice(whisky_soup)
+                        whisky["attributes"]["body"] = wsfunctions.setattrBody(whisky_soup)
+                        whisky["attributes"]["richness"] = wsfunctions.setattrRichness(whisky_soup)
+                        whisky["attributes"]["smoke"] = wsfunctions.setattrSmoke(whisky_soup)
+                        whisky["attributes"]["sweetness"] = wsfunctions.setattrSweetness(whisky_soup)
+                        whisky["attributes"]["character"] = wsfunctions.setAttrCharacter(whisky_soup)
 
-                            # Set the data for the whisky
-                            whisky["meta-data"]["pagemd"] = wsfunctions.setmdPageMeta(whisky_soup)
-                            whisky["meta-data"]["name"] = wsfunctions.setmdName(whisky_soup)
-                            whisky["meta-data"]["age"] = wsfunctions.setmdAge(whisky_soup)
-                            whisky["meta-data"]["price"] = wsfunctions.setmdPrice(whisky_soup)
-                            whisky["attributes"]["rating"] = wsfunctions.setattrRating(whisky_soup)
-                            whisky["attributes"]["body"] = wsfunctions.setattrBody(whisky_soup)
-                            whisky["attributes"]["richness"] = wsfunctions.setattrRichness(whisky_soup)
-                            whisky["attributes"]["smoke"] = wsfunctions.setattrSmoke(whisky_soup)
-                            whisky["attributes"]["sweetness"] = wsfunctions.setattrSweetness(whisky_soup)
-                            whisky["attributes"]["character"] = wsfunctions.setAttrCharacter(whisky_soup)
+                        # Run score calc and add to whisky
 
-                            # Run score calc and add to whisky
+                        whisky['attributes']['element_score'] = scoregen.element_generator(whisky['attributes'])
+                        whisky['attributes']['fruit_score'] = scoregen.fruit_generator(whisky['attributes'])
+                        whisky['attributes']['spice_score'] = scoregen.spice_generator(whisky['attributes'])
+                        whisky['attributes']['confectionery_score'] = scoregen.confectionery_generator(whisky['attributes'])
+                        whisky['attributes']['floral_score'] = scoregen.floral_generator(whisky['attributes'])
+                        whisky['attributes']['fatty_score'] = scoregen.fatty_generator(whisky['attributes'])
 
-                            whisky['attributes']['element_score'] = scoregen.element_generator(whisky['attributes'])
-                            whisky['attributes']['fruit_score'] = scoregen.fruit_generator(whisky['attributes'])
-                            whisky['attributes']['spice_score'] = scoregen.spice_generator(whisky['attributes'])
-                            whisky['attributes']['confectionery_score'] = scoregen.confectionery_generator(whisky['attributes'])
-                            whisky['attributes']['floral_score'] = scoregen.floral_generator(whisky['attributes'])
-                            whisky['attributes']['fatty_score'] = scoregen.fatty_generator(whisky['attributes'])
+                        # Save whisky to database
+                        whiskies.insert_one(whisky)
 
-                            # Save whisky to database
-                            whiskies.insert_one(whisky)
+                        print(f"indexed...")
 
-                            print(f"indexed...")
-
-                            saved_whisky_count += 1
-
-                        else:
-                            print("no rating, skipping...")
-                            pass
+                        saved_whisky_count += 1
                     
                     else:
                         print("No price, skipping...")
