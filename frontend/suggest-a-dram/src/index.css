@@ -29,11 +29,28 @@ body {
   width: 70%;
   height: 100%;
   margin: 20px auto;
-  padding: 30px;
-  background: rgba(168, 164, 160, 0.8)
+  background: rgba(168, 164, 160, 0.9);
+  border-radius: 4px;
 }
 
 .slider-section{
+  width: 40%;
   padding: 10px 30px 20px;
   text-align: center;
+}
+
+.bottle-image-wrapper{
+  margin: 0px auto;
+}
+.bottle-image{
+  margin: 10px 0px;
+  width: 250px;
+  height: 400px;
+}
+.quiz-button{
+  width: 100%;
+}
+
+.error-wrapper{
+  margin: 10px 0px;
 }

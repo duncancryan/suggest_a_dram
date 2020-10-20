@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SliderComponent from '../components/SliderComponent';
-import {Button, Typography} from '@material-ui/core';
+import {Button, Divider, Typography} from '@material-ui/core';
 import Request from '../helpers/request';
 
 export default class StyleWrapper extends Component {
@@ -54,7 +54,7 @@ export default class StyleWrapper extends Component {
         return (
           // does this need to be inside a form?
           <div>
-            <Typography variant="h4">Choose your style</Typography>
+            <Typography variant="h2">Choose your style</Typography>
             <h3>Body</h3>
             <SliderComponent onChange={this.onBodyChange} />
             <h3>Richness</h3>
@@ -65,6 +65,7 @@ export default class StyleWrapper extends Component {
             <SliderComponent onChange={this.onSweetnessChange} />
             <Button
               variant="contained"
+              className="quiz-button"
               color="primary"
               onClick={this.handleSubmit}
             >

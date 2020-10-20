@@ -3,6 +3,7 @@ import CharacterWrapper from './CharacterWrapper';
 import ResultWrapper from './ResultWrapper';
 import StyleWrapper from './StyleWrapper';
 import BottleImage from '../components/BottleImage'
+import { Button, Typography } from '@material-ui/core';
 
 export default class QuestionWrapper extends Component {
 
@@ -16,7 +17,6 @@ export default class QuestionWrapper extends Component {
     this.onSubmitStyle = this.onSubmitStyle.bind(this);
     this.onCharacterSelect = this.onCharacterSelect.bind(this);
     this.onCharacterSubmit = this.onCharacterSubmit.bind(this);
-    this.displayState = this.displayState.bind(this);
   }
 
   onSubmitStyle(data) {
@@ -30,6 +30,8 @@ export default class QuestionWrapper extends Component {
 
   onCharacterSubmit(data) {
     this.setState({ rankedWhiskies: data });
+    this.props.setFinalSet(data);
+    this.props.onComplete("positive");
   }
 
 
@@ -53,17 +55,18 @@ export default class QuestionWrapper extends Component {
         </Fragment>
       );
     } else {
-      return <p>Sorry cant find any whiskies with that style</p>
+      return (
+        <Fragment>
+          <Typography variant="h2">It's not you it's us!</Typography>
+          <div className="error-wrapper">
+            <Typography variant="body1">Sorry, we couldn't find any whiskies that matched your style.</Typography>
+            <Typography variant="body1">Our database is still growing so we probibily haven't seen your style before!</Typography>
+            <Typography variant="body2">Try again by clicking the button below</Typography>
+          </div>
+          <Button variant="contained" color="secondary" href="/quiz" className="quiz-button">Try again!</Button>
+        </Fragment>
+      );
     }
-  }
-
-  displayState() {
-    if (this.state.rankedWhiskies.length === 0) {
-      return this.questionSet();
-    } else {
-      return <ResultWrapper whiskies={this.state.rankedWhiskies} />
-    }
-
   }
 
   render() {
@@ -71,7 +74,7 @@ export default class QuestionWrapper extends Component {
 
       <Fragment>
 
-        {this.displayState()}
+        {this.questionSet()}
 
       </Fragment>
 

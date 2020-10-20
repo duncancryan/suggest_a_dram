@@ -131,7 +131,6 @@ export default class CharacterWrapper extends Component {
 
   submit() {
     const data = this.matchWhiskies();
-    console.log(data);
     this.props.characterSubmit(data);
   }
 
@@ -206,7 +205,7 @@ export default class CharacterWrapper extends Component {
 
   buttonDisplay() {
     if (this.props.stage > 6) {
-      return <Button variant="contained" colour="secondary" onClick={this.submit}>Finish</Button>
+      return <Button variant="contained" colour="secondary" className="quiz-button" onClick={this.submit}>Finish</Button>
     }
 
   }
