@@ -84,6 +84,15 @@ export default function WhiskyItem(props) {
 
     }
 
+    const tastingNotes = function (){
+        const tags = props.whisky.attributes.character.map((note) => {
+          return <Grid item>
+              <Chip label={note} color='secondary'/>
+                </Grid>
+        })
+        return tags;
+    }
+
     return(
         <Card className={(props.size === "small") ? classes.rootSmall : classes.root}>
             
@@ -109,6 +118,10 @@ export default function WhiskyItem(props) {
                         <Chip label={"Sweetness: " + props.whisky.attributes.sweetness} />
                     </Grid>
 
+
+                </Grid>
+                <Grid container spacing={2} className={classes.chips}>
+                    {tastingNotes()}
                 </Grid>
 
                 {description()}
