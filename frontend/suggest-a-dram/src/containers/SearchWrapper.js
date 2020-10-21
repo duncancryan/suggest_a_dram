@@ -47,10 +47,7 @@ export default class ResultWrapper extends Component {
         this.setState({ filtered: true })
     }
 
-
-
-    displayState(){
-
+    resultState() {
         const whiskies = this.state.whiskies.map((whisky, index) => {
             return <WhiskyItem whisky={whisky} key={index} />
         })
@@ -63,6 +60,16 @@ export default class ResultWrapper extends Component {
             return whiskies;
         } else {
             return searchResults;
+        }
+    }
+
+    displayState(){
+        if (this.state.whiskies.length > 0) {
+            return this.resultState();
+        } else {
+            return (
+                <Typography variant="h3">Loading whiskies please wait...</Typography>
+            );
         }
     }
 
