@@ -9,7 +9,7 @@ def element_generator(attributes):
 
     characters = attributes['character']
 
-    element = ['smoke','brine','tar','seaweed','salt','iodine','wax','tobacco','coffee','oak','meat','rum','cognac']
+    element = ['smoke','brine','tar','seaweed','salt','iodine','wax','tobacco','coffee','oak','meat','rum','cognac', 'salt (powder)', 'iodine (tcp)', 'earth', 'pencil shavings']
 
     element_score = 0
     
@@ -27,7 +27,7 @@ def fruit_generator(attributes):
     characters = attributes['character']
 
     fruit = ['Apple', 'Apricot','Dates','Pear','Prunes','Lemon','Raisins','Orange ','Strawberry','Dried Fruit','Plums','Lime','Pineapple','Peach','Stewed Fruit',
-    'Blackcurrant','Marmalade','Mango','Blackberry','Cherry','Raspberry','Sherry','Wine','Sultana', 'Melon', 'Figs']
+    'Blackcurrant','Marmalade','Mango','Blackberry','Cherry','Raspberry','Sherry','Wine','Sultana', 'Melon', 'Figs', 'Peardrops', 'Rhubarb', 'Grape', 'Papaya', 'Cranberry', 'Grapefruit', 'Banana', 'Raspberry']
     fruit_lower = []
     for tag in fruit:
         fruit_lower.append(tag.lower())
@@ -47,7 +47,7 @@ def spice_generator(attributes):
 
     characters = attributes['character']
 
-    spice = ['Cinnamon','White Pepper','Aniseed','Nutmeg','Clove','Ginger','Mint','Mixed Herb','Liquorice root','Sage','Black Pepper','Rosemary', 'Anise (star)']
+    spice = ['Cinnamon','White Pepper','Aniseed','Nutmeg','Clove','Ginger','Mint','Mixed Herb','Liquorice root','Sage','Black Pepper','Rosemary', 'Anise (star)', 'Caraway', 'Coriander seed']
     spice_lower = []
     for tag in spice:
         spice_lower.append(tag.lower())
@@ -67,7 +67,7 @@ def confectionery_generator(attributes):
 
     characters = attributes['character']
 
-    confectionery = ['Toffee','Honey ','Milk Chocolate','Praline','Dark Chocolate','Vanilla ','Peardrops','Caramel','Custard','Fruit Cake','Butterscotch','Biscuits', 'Malt','Toast','Brioche']
+    confectionery = ['Toffee','Honey ','Milk Chocolate','Praline','Dark Chocolate','Vanilla ','Peardrops','Caramel','Custard','Fruit Cake','Butterscotch','Biscuits', 'Malt','Toast','Brioche', 'Christmas Cake', 'Marzipan', 'Fruit Cake']
     confectionery_lower = []
     for tag in confectionery:
         confectionery_lower.append(tag.lower())
@@ -87,7 +87,7 @@ def floral_generator(attributes):
 
     characters = attributes['character']
 
-    floral = ['Grass','Heather','Honeysuckle','Rose','Hay']
+    floral = ['Grass','Heather','Honeysuckle','Rose','Hay', 'Leaves', 'Lavender', 'Rose', 'Pine', 'Dried tea', 'Lemongrass']
     floral_lower = []
     for tag in floral:
         floral_lower.append(tag.lower())
@@ -107,7 +107,7 @@ def fatty_generator(attributes):
 
     characters = attributes['character']
 
-    fatty = ['Butter','Cream','Almond','Hazelnut','Coconut']
+    fatty = ['Butter','Cream','Almond','Hazelnut','Coconut', 'Chestnut', 'Walnut']
     fatty_lower = []
     for tag in fatty:
         fatty_lower.append(tag.lower())
