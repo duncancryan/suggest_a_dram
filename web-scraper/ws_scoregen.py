@@ -26,7 +26,7 @@ def fruit_generator(attributes):
 
     characters = attributes['character']
 
-    fruit = ['Apple', 'Apricot','Dates','Pear','Prunes','Lemon','Raisins','Orange ','Strawberry','Dried Fruit','Plums','Lime','Pineapple','Peach','Stewed Fruit',
+    fruit = ['Apple', 'Apricot','Dates','Pear ','Prunes','Lemon','Raisins ','Orange ','Strawberry','Dried Fruit','Plums','Lime','Pineapple','Peach','Stewed Fruit',
     'Blackcurrant','Marmalade','Mango','Blackberry','Cherry','Raspberry','Sherry','Wine','Sultana', 'Melon', 'Figs', 'Peardrops', 'Rhubarb', 'Grape', 'Papaya', 'Cranberry', 'Grapefruit', 'Banana', 'Raspberry']
     fruit_lower = []
     for tag in fruit:
