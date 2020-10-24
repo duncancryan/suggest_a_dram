@@ -26,7 +26,7 @@ export default class StyleWrapper extends Component {
     // Methods
     matchOnStyle(){
         const request = new Request();
-        return request.get(`http://api.benfd.uk/api/whiskies/${this.state.body}/${this.state.richness}/${this.state.smoke}/${this.state.sweetness}`)
+        return request.get(`https://api.benfd.uk/api/whiskies/${this.state.body}/${this.state.richness}/${this.state.smoke}/${this.state.sweetness}`)
     }
 
     async handleSubmit(){
