@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import 'core-js/fn/number/is-nan'; 
-import 'core-js/es7/'; 
-import 'core-js/es6/';
 import 'raf/polyfill'; 
 
 ReactDOM.render(
