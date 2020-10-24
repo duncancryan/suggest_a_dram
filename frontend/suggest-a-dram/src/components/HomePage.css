@@ -5,10 +5,19 @@
 }
 
 .home-description{
-    position: absolute;
     text-align: center;
     color: white;
-    top: 50%;
-    left: 20%;
-    margin: -190px 0 0 -150px;
+    padding: 200px 500px 0px 0px;
 }
+
+@media all and (min-width: 0px) and (max-width: 960px) {
+
+    .home-page{
+        background: #757575;
+    }
+
+    .home-description{
+        padding: 25px 0 0 0;
+    }
+
+  }
