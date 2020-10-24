@@ -30,7 +30,7 @@ export default class ResultWrapper extends Component {
     componentDidMount() {
         const request = new Request();
 
-        request.get('/api/whiskies')
+        request.get('http://api.benfd.uk/api/whiskies')
             .then(data => this.setState({ whiskies: data }));
     }
 
