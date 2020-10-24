@@ -4,7 +4,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #fafafa;
-  background: url('https://www.trumpgolfscotland.com/images/dynamic/getImage.gif?ID=100000800') no-repeat center center fixed; 
+  /* background: url('https://www.trumpgolfscotland.com/images/dynamic/getImage.gif?ID=100000800') no-repeat center center fixed;  */
+  background: #757575;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
