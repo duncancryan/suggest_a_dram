@@ -1,6 +1,6 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
-import { Toolbar, Button, Grid, ButtonGroup, makeStyles} from '@material-ui/core';
+import { Toolbar, Button, Grid, makeStyles} from '@material-ui/core';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import LocalBarRoundedIcon from '@material-ui/icons/LocalBarRounded';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
