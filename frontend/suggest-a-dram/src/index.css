@@ -4,8 +4,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #fafafa;
-  /* background: url('https://www.trumpgolfscotland.com/images/dynamic/getImage.gif?ID=100000800') no-repeat center center fixed;  */
-  background: #757575;
+  background: url('https://www.trumpgolfscotland.com/images/dynamic/getImage.gif?ID=100000800') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -54,4 +53,19 @@ body {
 
 .error-wrapper{
   margin: 10px 0px;
+}
+
+@media all and (min-width: 0px) and (max-width: 960px) {
+  body{
+    background: #757575;
+  }
+
+  .slider-section{
+    width: 100%;
+  }
+  
+  .bottle-image-wrapper{
+    display: none;
+    width: 0%;
+  }
 }

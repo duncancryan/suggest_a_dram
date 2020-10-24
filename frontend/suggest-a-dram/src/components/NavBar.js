@@ -10,6 +10,9 @@ import Logo from './logo.png';
 const useStyles = makeStyles((theme) => ({
     logo: {
         width: "35px"
+    },
+    navButton: {
+        marginLeft: "10px"
     }
 }));
 
@@ -24,16 +27,14 @@ export default function NavBar() {
 
                 <Grid justify="space-between" container>
 
-                    <img src={Logo} alt="" className={classes.logo} />
+                    <img src={Logo} alt="Suggest A Dram" className={classes.logo} />
 
                     <Grid item>
 
-                        <ButtonGroup variant="contained" color="secondary" size="large">
-                            <Button href="/" startIcon={<HomeRoundedIcon />}>Home</Button>
-                            <Button href="/quiz" startIcon={<SearchRoundedIcon />}>Suggest a Whisky</Button>
-                            <Button href="/all" startIcon={<LocalBarRoundedIcon />}>All Whiskies</Button>
-                            <Button href="/auth" startIcon={<AccountCircleRoundedIcon />}>Login</Button>
-                        </ButtonGroup>
+                        <Button variant="contained" color="secondary" size="large" className={classes.navButton} href="/" startIcon={<HomeRoundedIcon />}>Home</Button>
+                        <Button variant="contained" color="secondary" size="large" className={classes.navButton} href="/quiz" startIcon={<SearchRoundedIcon />}>Suggest a Whisky</Button>
+                        <Button variant="contained" color="secondary" size="large" className={classes.navButton} href="/all" startIcon={<LocalBarRoundedIcon />}>All Whiskies</Button>
+                        <Button variant="contained" color="secondary" size="large" className={classes.navButton} href="/auth" startIcon={<AccountCircleRoundedIcon />}>Login</Button>
 
                     </Grid>
 
