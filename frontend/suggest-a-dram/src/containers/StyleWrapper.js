@@ -25,8 +25,28 @@ export default class StyleWrapper extends Component {
     }
     // Methods
     matchOnStyle(){
+        let body = this.state.body;
+        let richness = this.state.richness;
+        let smoke = this.state.smoke;
+        let sweetness = this.state.sweetness;
+        const plugIn =[body, richness, smoke, sweetness];
         const request = new Request();
-        return request.get(`/api/whiskies/${this.state.body}/${this.state.richness}/${this.state.smoke}/${this.state.sweetness}`)
+        const resOne = request.get(`/api/whiskies/${plugIn[0]}/${plugIn[1]}/${plugIn[2]}/${plugIn[3]}`);
+        if (resOne.then(data => data !== []){
+            return resOne;
+        } else {
+            const plugIn2 = [];
+            for (let attr in plugIn){
+                if (attr === 5){
+                    attr -= 1;
+                    plugIn2.push(attr);
+                } else if (attr === 0){
+                    attr += 1;
+                    plugIn2.push(attr);
+                }
+            }
+            return request.get(`/api/whiskies/${plugIn2[0]}/${plugIn2[1]}/${plugIn2[2]}/${plugIn2[3]}`);  
+        }
     }
 
     async handleSubmit(){
