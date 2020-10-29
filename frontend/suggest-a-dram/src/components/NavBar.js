@@ -27,7 +27,7 @@ export default function NavBar() {
 
                 <Grid justify="space-between" container>
 
-                    <img src={Logo} alt="Suggest A Dram" className={classes.logo} />
+                    {/* <img src={Logo} alt="Suggest A Dram" className={classes.logo} /> */}
 
                     <Grid item>
 
