@@ -18,6 +18,8 @@ export default function MainRouter() {
 
                 <NavBar />
 
+                {console.log("before routes")}
+
                 <Switch>
                     <Route exact path="/" component={HomePage} />
                 </Switch>

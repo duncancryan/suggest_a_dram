@@ -3,6 +3,9 @@ import './HomePage.css'
 import {Button, Typography} from '@material-ui/core';
 
 export default function HomePage() {
+
+    console.log("home page called")
+
     return (
         <main className="home-page">
             <div className="home-description">
